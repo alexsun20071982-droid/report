@@ -162,6 +162,39 @@ def fetch_feishu_doc_content(doc_url: str) -> str:
     return '\n'.join(md_lines)
 
 
+def resolve_md_path(md_path: str, vault_root: str = '', repo_root: str = '') -> str:
+    """
+    解析 md 路径：
+    - 绝对路径（/home/...）→ 直接用
+    - 相对路径（dist/...）→ 在 repo_root 或 vault_root 里找
+    """
+    if not md_path:
+        return ''
+
+    if os.path.isabs(md_path):
+        return md_path  # 绝对路径直接用
+
+    # 相对路径：在多个候选根目录找
+    candidates = []
+    if repo_root:
+        candidates.append(repo_root)
+    if vault_root:
+        candidates.append(vault_root)
+    # 默认候选：当前工作目录下的 report repo
+    candidates.append(os.path.expanduser('~/.hermes-scripts'))
+
+    for root in candidates:
+        full = os.path.join(root, md_path)
+        if os.path.exists(full):
+            return full
+
+    # 找不到
+    print(f"  ⚠️ 相对路径 {md_path} 在候选根目录都找不到:")
+    for root in candidates:
+        print(f"    - {os.path.join(root, md_path)}")
+    return md_path  # 返回原样让上层报错
+
+
 def write_to_vault(vault_root: str, title: str, content: str, source_type: str, created_at_ms: int) -> str:
     """写 Vault → 返回 vault_path"""
     # YYYY-MM 子目录
@@ -224,8 +257,8 @@ def update_dist_row(record_id: str, status: str, vault_path: str, read_by: str, 
 
 
 def process_one_dist_row(row: dict, agent_name: str, vault_root: str, dry_run: bool,
-                          write_vault: bool, add_kg: bool) -> dict:
-    """处理单行分发包"""
+                          write_vault: bool, add_kg: bool, repo_root: str = '') -> dict:
+    """处理单行投递包"""
     dist_id = row.get('dist_id', '')
     title = row.get('title', '')
     doc_url = row.get('feishu_doc_url', '')
@@ -237,6 +270,7 @@ def process_one_dist_row(row: dict, agent_name: str, vault_root: str, dry_run: b
     print(f"  dist_id: {dist_id}")
     print(f"  record_id: {record_id}")
     print(f"  doc_url: {(doc_url or '')[:60]}...")
+    print(f"  md_local_path: {md_local_path}")
 
     if dry_run:
         print(f"  [DRY RUN] 不会真改任何东西")
@@ -248,12 +282,16 @@ def process_one_dist_row(row: dict, agent_name: str, vault_root: str, dry_run: b
         print(f"  → 拉飞书 docs...")
         content = fetch_feishu_doc_content(doc_url)
         print(f"    ✅ 拉取到 {len(content):,} chars")
-    elif md_local_path and os.path.exists(md_local_path):
-        # fallback: 用云端本地 .md
-        print(f"  → 用云端 md_local_path...")
-        with open(md_local_path, 'r', encoding='utf-8') as f:
-            content = f.read()
-        print(f"    ✅ {len(content):,} chars")
+    elif md_local_path:
+        # 先解析路径（绝对/相对）
+        resolved = resolve_md_path(md_local_path, vault_root=vault_root, repo_root=repo_root)
+        if os.path.exists(resolved):
+            print(f"  → 用 md_local_path: {resolved}")
+            with open(resolved, 'r', encoding='utf-8') as f:
+                content = f.read()
+            print(f"    ✅ {len(content):,} chars")
+        else:
+            print(f"  ⚠️ md_local_path 解析失败: {md_local_path} -> {resolved}")
     else:
         print(f"  ⚠️ 没有任何内容源（doc_url 空 + md 不存在）")
 
@@ -317,6 +355,7 @@ def main():
     parser.add_argument('--dry-run', action='store_true', help='只拉表，不改任何东西')
     parser.add_argument('--no-vault', action='store_true', help='不写 Vault')
     parser.add_argument('--no-kg', action='store_true', help='不入 KG')
+    parser.add_argument('--repo-root', default='', help='hermes-scripts report repo 根目录（用于解析 dist/xxx.md 相对路径）')
     args = parser.parse_args()
 
     print(f"=== 多 agent 读表 ===")
@@ -338,6 +377,7 @@ def main():
             dry_run=args.dry_run,
             write_vault=(not args.no_vault) and bool(args.vault_root),
             add_kg=(not args.no_kg),
+            repo_root=args.repo_root,
         )
         results.append(result)
 

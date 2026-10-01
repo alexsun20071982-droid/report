@@ -65,3 +65,11 @@ python3 ~/.hermes-scripts/scripts/feishu_dist_reader.py \
 - 2026-09-30：初版 4 个脚本
 - 双轨状态机设计完成
 - 6 域 ontology 入 KG（45 triples + 42 entities）
+
+## dist/ 目录
+云端 cron 产出的 .md 同步到此目录，文件名格式 `YYYY-MM-DD_type.md`。
+
+本地 agent 的 reader 会从 `md_local_path` 字段（值如 `dist/2026-09-29_feynman-daily.md`）找到对应 .md。
+
+## 自动同步
+云端 cron `publish-dist-tasks` 02:30 跑后会触发 `scripts/sync_dist_to_repo.py`，把新生成的 .md 同步到 repo。
