@@ -1,0 +1,128 @@
+{
+  "name": "医美产业链",
+  "version": "v1.0",
+  "nodes": [
+    {
+      "id": "u1",
+      "name": "原料 / 器械",
+      "tier": "upstream",
+      "layer": 1,
+      "aliases": [
+        "玻尿酸原料",
+        "胶原蛋白",
+        "肉毒素",
+        "激光器械"
+      ]
+    },
+    {
+      "id": "u2",
+      "name": "生物材料",
+      "tier": "upstream",
+      "layer": 1,
+      "aliases": [
+        "重组胶原蛋白",
+        "PDRN"
+      ]
+    },
+    {
+      "id": "m1",
+      "name": "上游厂商",
+      "tier": "midstream",
+      "layer": 2,
+      "aliases": [
+        "华熙生物",
+        "爱美客",
+        "巨子生物"
+      ]
+    },
+    {
+      "id": "m2",
+      "name": "中游产品",
+      "tier": "midstream",
+      "layer": 2,
+      "aliases": [
+        "玻尿酸",
+        "童颜针",
+        "少女针",
+        "光电设备"
+      ]
+    },
+    {
+      "id": "m3",
+      "name": "渠道",
+      "tier": "midstream",
+      "layer": 2,
+      "aliases": [
+        "医美机构",
+        "连锁医美"
+      ]
+    },
+    {
+      "id": "d1",
+      "name": "消费者",
+      "tier": "downstream",
+      "layer": 3,
+      "aliases": [
+        "Z 世代",
+        "熟龄"
+      ]
+    },
+    {
+      "id": "d2",
+      "name": "公立医院整形科",
+      "tier": "downstream",
+      "layer": 3,
+      "aliases": [
+        "三甲医院"
+      ]
+    }
+  ],
+  "edges": [
+    {
+      "from": "u1",
+      "to": "m1",
+      "relation": "原料→上游厂商"
+    },
+    {
+      "from": "u2",
+      "to": "m1",
+      "relation": "生物材料→上游"
+    },
+    {
+      "from": "m1",
+      "to": "m2",
+      "relation": "上游→产品"
+    },
+    {
+      "from": "m2",
+      "to": "m3",
+      "relation": "产品→渠道"
+    },
+    {
+      "from": "m3",
+      "to": "d1",
+      "relation": "渠道→消费者"
+    },
+    {
+      "from": "m2",
+      "to": "d2",
+      "relation": "产品→公立医院"
+    }
+  ],
+  "companies": {
+    "m1": [
+      "华熙生物",
+      "爱美客",
+      "巨子生物",
+      "华东医药",
+      "昊海生科"
+    ],
+    "m3": [
+      "美莱",
+      "华美",
+      "艺星",
+      "朗姿",
+      "新氧"
+    ]
+  }
+}

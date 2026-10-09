@@ -1,0 +1,158 @@
+{
+  "name": "网络安全产业链",
+  "version": "v1.0",
+  "nodes": [
+    {
+      "id": "u1",
+      "name": "密码学",
+      "tier": "upstream",
+      "layer": 1,
+      "aliases": [
+        "加密算法"
+      ]
+    },
+    {
+      "id": "u2",
+      "name": "硬件安全",
+      "tier": "upstream",
+      "layer": 1,
+      "aliases": [
+        "TPM",
+        "HSM",
+        "安全芯片"
+      ]
+    },
+    {
+      "id": "m1",
+      "name": "防火墙 / WAF",
+      "tier": "midstream",
+      "layer": 2,
+      "aliases": [
+        "边界安全"
+      ]
+    },
+    {
+      "id": "m2",
+      "name": "EDR / XDR",
+      "tier": "midstream",
+      "layer": 2,
+      "aliases": [
+        "终端安全",
+        "扩展检测响应"
+      ]
+    },
+    {
+      "id": "m3",
+      "name": "SIEM / SOC",
+      "tier": "midstream",
+      "layer": 2,
+      "aliases": [
+        "安全运营",
+        "Splunk"
+      ]
+    },
+    {
+      "id": "m4",
+      "name": "数据安全",
+      "tier": "midstream",
+      "layer": 2,
+      "aliases": [
+        "DLP",
+        "数据脱敏"
+      ]
+    },
+    {
+      "id": "d1",
+      "name": "政府",
+      "tier": "downstream",
+      "layer": 3,
+      "aliases": [
+        "关基"
+      ]
+    },
+    {
+      "id": "d2",
+      "name": "金融",
+      "tier": "downstream",
+      "layer": 3,
+      "aliases": [
+        "银行",
+        "证券"
+      ]
+    },
+    {
+      "id": "d3",
+      "name": "能源",
+      "tier": "downstream",
+      "layer": 3,
+      "aliases": [
+        "电力",
+        "油气"
+      ]
+    }
+  ],
+  "edges": [
+    {
+      "from": "u1",
+      "to": "m4",
+      "relation": "密码→数据安全"
+    },
+    {
+      "from": "u2",
+      "to": "m1",
+      "relation": "硬件→防火墙"
+    },
+    {
+      "from": "u1",
+      "to": "m2",
+      "relation": "密码→EDR"
+    },
+    {
+      "from": "m1",
+      "to": "m3",
+      "relation": "防火墙→SIEM"
+    },
+    {
+      "from": "m2",
+      "to": "m3",
+      "relation": "EDR→SIEM"
+    },
+    {
+      "from": "m3",
+      "to": "d1",
+      "relation": "SIEM→政府"
+    },
+    {
+      "from": "m4",
+      "to": "d2",
+      "relation": "数据安全→金融"
+    },
+    {
+      "from": "m1",
+      "to": "d3",
+      "relation": "防火墙→能源"
+    }
+  ],
+  "companies": {
+    "m1": [
+      "Palo Alto Networks",
+      "深信服",
+      "奇安信",
+      "启明星辰"
+    ],
+    "m2": [
+      "CrowdStrike",
+      "奇安信",
+      "亚信安全"
+    ],
+    "m3": [
+      "Splunk",
+      "IBM QRadar",
+      "奇安信",
+      "安恒信息"
+    ],
+    "m4": [
+      "数据安全公司"
+    ]
+  }
+}

@@ -1,0 +1,217 @@
+{
+  "name": "半导体产业链",
+  "version": "v1.0",
+  "nodes": [
+    {
+      "id": "u1",
+      "name": "EDA",
+      "tier": "upstream",
+      "layer": 1,
+      "aliases": [
+        "电子设计自动化",
+        "Cadence",
+        "Synopsys"
+      ]
+    },
+    {
+      "id": "u2",
+      "name": "IP",
+      "tier": "upstream",
+      "layer": 1,
+      "aliases": [
+        "芯核",
+        "ARM"
+      ]
+    },
+    {
+      "id": "u3",
+      "name": "半导体材料",
+      "tier": "upstream",
+      "layer": 1,
+      "aliases": [
+        "硅片",
+        "光刻胶",
+        "靶材",
+        "特气"
+      ]
+    },
+    {
+      "id": "u4",
+      "name": "半导体设备",
+      "tier": "upstream",
+      "layer": 1,
+      "aliases": [
+        "光刻机",
+        "刻蚀机",
+        "薄膜沉积"
+      ]
+    },
+    {
+      "id": "m1",
+      "name": "IC 设计",
+      "tier": "midstream",
+      "layer": 2,
+      "aliases": [
+        "Fabless",
+        "芯片设计"
+      ]
+    },
+    {
+      "id": "m2",
+      "name": "晶圆制造",
+      "tier": "midstream",
+      "layer": 2,
+      "aliases": [
+        "Foundry",
+        "代工厂"
+      ]
+    },
+    {
+      "id": "m3",
+      "name": "封装测试",
+      "tier": "midstream",
+      "layer": 2,
+      "aliases": [
+        "OSAT",
+        "封测"
+      ]
+    },
+    {
+      "id": "d1",
+      "name": "消费电子",
+      "tier": "downstream",
+      "layer": 3,
+      "aliases": [
+        "手机",
+        "笔电"
+      ]
+    },
+    {
+      "id": "d2",
+      "name": "汽车",
+      "tier": "downstream",
+      "layer": 3,
+      "aliases": [
+        "车规芯片",
+        "MCU"
+      ]
+    },
+    {
+      "id": "d3",
+      "name": "数据中心",
+      "tier": "downstream",
+      "layer": 3,
+      "aliases": [
+        "服务器",
+        "AI 算力"
+      ]
+    },
+    {
+      "id": "d4",
+      "name": "工业控制",
+      "tier": "downstream",
+      "layer": 3,
+      "aliases": [
+        "工控",
+        "PLC"
+      ]
+    }
+  ],
+  "edges": [
+    {
+      "from": "u1",
+      "to": "m1",
+      "relation": "EDA→设计"
+    },
+    {
+      "from": "u2",
+      "to": "m1",
+      "relation": "IP→设计"
+    },
+    {
+      "from": "u3",
+      "to": "m2",
+      "relation": "材料→制造"
+    },
+    {
+      "from": "u4",
+      "to": "m2",
+      "relation": "设备→制造"
+    },
+    {
+      "from": "m1",
+      "to": "m2",
+      "relation": "设计→制造"
+    },
+    {
+      "from": "m2",
+      "to": "m3",
+      "relation": "制造→封测"
+    },
+    {
+      "from": "m3",
+      "to": "d1",
+      "relation": "封测→消费电子"
+    },
+    {
+      "from": "m3",
+      "to": "d2",
+      "relation": "封测→汽车"
+    },
+    {
+      "from": "m3",
+      "to": "d3",
+      "relation": "封测→数据中心"
+    },
+    {
+      "from": "m3",
+      "to": "d4",
+      "relation": "封测→工控"
+    }
+  ],
+  "companies": {
+    "u1": [
+      "Cadence",
+      "Synopsys",
+      "华大九天",
+      "概伦电子"
+    ],
+    "u2": [
+      "ARM",
+      "Imagination",
+      "芯原微电子",
+      "M31"
+    ],
+    "u3": [
+      "沪硅产业",
+      "TCL 中环",
+      "南大光电",
+      "彤程新材"
+    ],
+    "u4": [
+      "ASML",
+      "AMAT",
+      "北方华创",
+      "中微公司",
+      "拓荆科技"
+    ],
+    "m1": [
+      "海光信息",
+      "韦尔股份",
+      "紫光国微",
+      "兆易创新",
+      "澜起科技"
+    ],
+    "m2": [
+      "台积电",
+      "中芯国际",
+      "华虹半导体"
+    ],
+    "m3": [
+      "长电科技",
+      "通富微电",
+      "华天科技",
+      "晶方科技"
+    ]
+  }
+}

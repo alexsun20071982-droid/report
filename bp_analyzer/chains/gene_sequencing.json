@@ -1,0 +1,139 @@
+{
+  "name": "基因测序产业链",
+  "version": "v1.0",
+  "nodes": [
+    {
+      "id": "u1",
+      "name": "测序仪",
+      "tier": "upstream",
+      "layer": 1,
+      "aliases": [
+        "NGS",
+        "测序设备"
+      ]
+    },
+    {
+      "id": "u2",
+      "name": "试剂耗材",
+      "tier": "upstream",
+      "layer": 1,
+      "aliases": [
+        "测序试剂",
+        "建库试剂"
+      ]
+    },
+    {
+      "id": "u3",
+      "name": "酶",
+      "tier": "upstream",
+      "layer": 1,
+      "aliases": [
+        "聚合酶",
+        "工具酶"
+      ]
+    },
+    {
+      "id": "m1",
+      "name": "测序服务",
+      "tier": "midstream",
+      "layer": 2,
+      "aliases": [
+        "测序公司",
+        "测序中心"
+      ]
+    },
+    {
+      "id": "m2",
+      "name": "生信分析",
+      "tier": "midstream",
+      "layer": 2,
+      "aliases": [
+        "生物信息学",
+        "数据解读"
+      ]
+    },
+    {
+      "id": "d1",
+      "name": "科研",
+      "tier": "downstream",
+      "layer": 3,
+      "aliases": [
+        "高校",
+        "研究所"
+      ]
+    },
+    {
+      "id": "d2",
+      "name": "临床诊断",
+      "tier": "downstream",
+      "layer": 3,
+      "aliases": [
+        "NIPT",
+        "肿瘤早筛",
+        "感染检测"
+      ]
+    },
+    {
+      "id": "d3",
+      "name": "农业",
+      "tier": "downstream",
+      "layer": 3,
+      "aliases": [
+        "育种",
+        "分子育种"
+      ]
+    }
+  ],
+  "edges": [
+    {
+      "from": "u1",
+      "to": "m1",
+      "relation": "测序仪→服务"
+    },
+    {
+      "from": "u2",
+      "to": "m1",
+      "relation": "试剂→服务"
+    },
+    {
+      "from": "u3",
+      "to": "m1",
+      "relation": "酶→服务"
+    },
+    {
+      "from": "m1",
+      "to": "m2",
+      "relation": "测序→生信"
+    },
+    {
+      "from": "m2",
+      "to": "d1",
+      "relation": "分析→科研"
+    },
+    {
+      "from": "m2",
+      "to": "d2",
+      "relation": "分析→临床"
+    },
+    {
+      "from": "m2",
+      "to": "d3",
+      "relation": "分析→农业"
+    }
+  ],
+  "companies": {
+    "u1": [
+      "Illumina",
+      "华大智造",
+      "PacBio",
+      "Nanopore",
+      "华大智造"
+    ],
+    "m1": [
+      "华大基因",
+      "诺禾致源",
+      "贝瑞和康",
+      "燃石医学"
+    ]
+  }
+}

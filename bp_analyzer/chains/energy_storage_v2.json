@@ -1,0 +1,141 @@
+{
+  "name": "储能（钠电池）产业链",
+  "version": "v1.0",
+  "nodes": [
+    {
+      "id": "u1",
+      "name": "钠资源",
+      "tier": "upstream",
+      "layer": 1,
+      "aliases": [
+        "钠矿",
+        "纯碱"
+      ]
+    },
+    {
+      "id": "u2",
+      "name": "正极材料",
+      "tier": "upstream",
+      "layer": 1,
+      "aliases": [
+        "层状氧化物",
+        "普鲁士蓝"
+      ]
+    },
+    {
+      "id": "u3",
+      "name": "负极材料",
+      "tier": "upstream",
+      "layer": 1,
+      "aliases": [
+        "硬碳"
+      ]
+    },
+    {
+      "id": "u4",
+      "name": "电解液 / 隔膜",
+      "tier": "upstream",
+      "layer": 1,
+      "aliases": [
+        "钠电池专用"
+      ]
+    },
+    {
+      "id": "m1",
+      "name": "钠电池电芯",
+      "tier": "midstream",
+      "layer": 2,
+      "aliases": [
+        "钠离子电池"
+      ]
+    },
+    {
+      "id": "m2",
+      "name": "PACK / BMS",
+      "tier": "midstream",
+      "layer": 2,
+      "aliases": [
+        "电池包"
+      ]
+    },
+    {
+      "id": "d1",
+      "name": "储能电站",
+      "tier": "downstream",
+      "layer": 3,
+      "aliases": [
+        "大型储能",
+        "工商业储能"
+      ]
+    },
+    {
+      "id": "d2",
+      "name": "两轮电动车",
+      "tier": "downstream",
+      "layer": 3,
+      "aliases": [
+        "电动两轮车"
+      ]
+    },
+    {
+      "id": "d3",
+      "name": "低速车",
+      "tier": "downstream",
+      "layer": 3,
+      "aliases": [
+        "A00 级车"
+      ]
+    }
+  ],
+  "edges": [
+    {
+      "from": "u1",
+      "to": "u2",
+      "relation": "钠→正极"
+    },
+    {
+      "from": "u2",
+      "to": "m1",
+      "relation": "正极→电芯"
+    },
+    {
+      "from": "u3",
+      "to": "m1",
+      "relation": "负极→电芯"
+    },
+    {
+      "from": "u4",
+      "to": "m1",
+      "relation": "电解液→电芯"
+    },
+    {
+      "from": "m1",
+      "to": "m2",
+      "relation": "电芯→PACK"
+    },
+    {
+      "from": "m2",
+      "to": "d1",
+      "relation": "PACK→储能"
+    },
+    {
+      "from": "m1",
+      "to": "d2",
+      "relation": "电芯→两轮车"
+    },
+    {
+      "from": "m1",
+      "to": "d3",
+      "relation": "电芯→低速车"
+    }
+  ],
+  "companies": {
+    "m1": [
+      "宁德时代",
+      "中科海钠",
+      "传艺科技",
+      "钠创新能源",
+      "华阳股份"
+    ]
+  }
+}

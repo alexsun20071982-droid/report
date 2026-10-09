@@ -1,0 +1,161 @@
+{
+  "name": "云计算产业链",
+  "version": "v1.0",
+  "nodes": [
+    {
+      "id": "u1",
+      "name": "服务器",
+      "tier": "upstream",
+      "layer": 1,
+      "aliases": [
+        "X86",
+        "ARM 服务器"
+      ]
+    },
+    {
+      "id": "u2",
+      "name": "存储设备",
+      "tier": "upstream",
+      "layer": 1,
+      "aliases": [
+        "SSD",
+        "HDD",
+        "分布式存储"
+      ]
+    },
+    {
+      "id": "u3",
+      "name": "网络设备",
+      "tier": "upstream",
+      "layer": 1,
+      "aliases": [
+        "交换机",
+        "路由器",
+        "光模块"
+      ]
+    },
+    {
+      "id": "m1",
+      "name": "IaaS",
+      "tier": "midstream",
+      "layer": 2,
+      "aliases": [
+        "基础设施",
+        "AWS",
+        "阿里云"
+      ]
+    },
+    {
+      "id": "m2",
+      "name": "PaaS",
+      "tier": "midstream",
+      "layer": 2,
+      "aliases": [
+        "平台",
+        "容器",
+        "数据库"
+      ]
+    },
+    {
+      "id": "m3",
+      "name": "SaaS",
+      "tier": "midstream",
+      "layer": 2,
+      "aliases": [
+        "软件服务",
+        "飞书",
+        "Salesforce"
+      ]
+    },
+    {
+      "id": "d1",
+      "name": "互联网公司",
+      "tier": "downstream",
+      "layer": 3,
+      "aliases": [
+        "平台经济"
+      ]
+    },
+    {
+      "id": "d2",
+      "name": "传统企业",
+      "tier": "downstream",
+      "layer": 3,
+      "aliases": [
+        "数字化转型"
+      ]
+    },
+    {
+      "id": "d3",
+      "name": "政府",
+      "tier": "downstream",
+      "layer": 3,
+      "aliases": [
+        "政务云"
+      ]
+    }
+  ],
+  "edges": [
+    {
+      "from": "u1",
+      "to": "m1",
+      "relation": "服务器→IaaS"
+    },
+    {
+      "from": "u2",
+      "to": "m1",
+      "relation": "存储→IaaS"
+    },
+    {
+      "from": "u3",
+      "to": "m1",
+      "relation": "网络→IaaS"
+    },
+    {
+      "from": "m1",
+      "to": "m2",
+      "relation": "IaaS→PaaS"
+    },
+    {
+      "from": "m2",
+      "to": "m3",
+      "relation": "PaaS→SaaS"
+    },
+    {
+      "from": "m1",
+      "to": "d1",
+      "relation": "IaaS→互联网"
+    },
+    {
+      "from": "m3",
+      "to": "d2",
+      "relation": "SaaS→传统企业"
+    },
+    {
+      "from": "m1",
+      "to": "d3",
+      "relation": "IaaS→政府"
+    }
+  ],
+  "companies": {
+    "m1": [
+      "阿里云",
+      "华为云",
+      "腾讯云",
+      "AWS",
+      "微软 Azure"
+    ],
+    "m2": [
+      "容器云",
+      "DaoCloud",
+      "时速云"
+    ],
+    "m3": [
+      "飞书",
+      "钉钉",
+      "企业微信",
+      "Salesforce",
+      "用友云"
+    ]
+  }
+}

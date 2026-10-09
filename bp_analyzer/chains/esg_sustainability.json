@@ -1,0 +1,167 @@
+{
+  "name": "ESG 产业链",
+  "version": "v1.0",
+  "nodes": [
+    {
+      "id": "u1",
+      "name": "ESG 数据 / 评级",
+      "tier": "upstream",
+      "layer": 1,
+      "aliases": [
+        "MSCI",
+        "商道融绿",
+        "Wind ESG"
+      ]
+    },
+    {
+      "id": "u2",
+      "name": "ESG 咨询",
+      "tier": "upstream",
+      "layer": 1,
+      "aliases": [
+        "四大事务所",
+        "战略咨询"
+      ]
+    },
+    {
+      "id": "m1",
+      "name": "ESG 披露",
+      "tier": "midstream",
+      "layer": 2,
+      "aliases": [
+        "ESG 报告",
+        "可持续报告"
+      ]
+    },
+    {
+      "id": "m2",
+      "name": "绿色金融",
+      "tier": "midstream",
+      "layer": 2,
+      "aliases": [
+        "绿色债券",
+        "可持续贷款"
+      ]
+    },
+    {
+      "id": "m3",
+      "name": "ESG 投资",
+      "tier": "midstream",
+      "layer": 2,
+      "aliases": [
+        "ESG 基金",
+        "影响力投资"
+      ]
+    },
+    {
+      "id": "m4",
+      "name": "碳服务",
+      "tier": "midstream",
+      "layer": 2,
+      "aliases": [
+        "碳核查",
+        "碳认证",
+        "碳咨询"
+      ]
+    },
+    {
+      "id": "d1",
+      "name": "上市公司",
+      "tier": "downstream",
+      "layer": 3,
+      "aliases": [
+        "A 股",
+        "港股"
+      ]
+    },
+    {
+      "id": "d2",
+      "name": "金融机构",
+      "tier": "downstream",
+      "layer": 3,
+      "aliases": [
+        "银行",
+        "保险",
+        "资管"
+      ]
+    },
+    {
+      "id": "d3",
+      "name": "监管机构",
+      "tier": "downstream",
+      "layer": 3,
+      "aliases": [
+        "证监会",
+        "交易所"
+      ]
+    }
+  ],
+  "edges": [
+    {
+      "from": "u1",
+      "to": "m1",
+      "relation": "数据→披露"
+    },
+    {
+      "from": "u1",
+      "to": "m3",
+      "relation": "数据→投资"
+    },
+    {
+      "from": "u2",
+      "to": "m1",
+      "relation": "咨询→披露"
+    },
+    {
+      "from": "m1",
+      "to": "d1",
+      "relation": "披露→上市公司"
+    },
+    {
+      "from": "m1",
+      "to": "d3",
+      "relation": "披露→监管"
+    },
+    {
+      "from": "m2",
+      "to": "d2",
+      "relation": "绿金→机构"
+    },
+    {
+      "from": "m3",
+      "to": "d2",
+      "relation": "投资→机构"
+    },
+    {
+      "from": "m4",
+      "to": "d1",
+      "relation": "碳服务→上市公司"
+    }
+  ],
+  "companies": {
+    "u1": [
+      "MSCI",
+      "Sustainalytics",
+      "商道融绿",
+      "Wind ESG"
+    ],
+    "u2": [
+      "PwC",
+      "Deloitte",
+      "KPMG",
+      "EY",
+      "中诚信"
+    ],
+    "m2": [
+      "工商银行",
+      "兴业银行",
+      "国开行"
+    ],
+    "m3": [
+      "华夏基金",
+      "易方达",
+      "南方基金",
+      "贝莱德"
+    ]
+  }
+}

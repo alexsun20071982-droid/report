@@ -1,0 +1,148 @@
+{
+  "name": "工业机器人产业链",
+  "version": "v1.0",
+  "nodes": [
+    {
+      "id": "u1",
+      "name": "减速器",
+      "tier": "upstream",
+      "layer": 1,
+      "aliases": [
+        "RV 减速器",
+        "谐波减速器"
+      ]
+    },
+    {
+      "id": "u2",
+      "name": "伺服电机",
+      "tier": "upstream",
+      "layer": 1,
+      "aliases": [
+        "伺服系统"
+      ]
+    },
+    {
+      "id": "u3",
+      "name": "控制器",
+      "tier": "upstream",
+      "layer": 1,
+      "aliases": [
+        "运动控制"
+      ]
+    },
+    {
+      "id": "m1",
+      "name": "本体厂商",
+      "tier": "midstream",
+      "layer": 2,
+      "aliases": [
+        "机器人本体",
+        "六轴机器人"
+      ]
+    },
+    {
+      "id": "m2",
+      "name": "系统集成",
+      "tier": "midstream",
+      "layer": 2,
+      "aliases": [
+        "SI",
+        "集成商"
+      ]
+    },
+    {
+      "id": "d1",
+      "name": "汽车制造",
+      "tier": "downstream",
+      "layer": 3,
+      "aliases": [
+        "焊接",
+        "喷涂",
+        "装配"
+      ]
+    },
+    {
+      "id": "d2",
+      "name": "3C 电子",
+      "tier": "downstream",
+      "layer": 3,
+      "aliases": [
+        "手机组装"
+      ]
+    },
+    {
+      "id": "d3",
+      "name": "新能源",
+      "tier": "downstream",
+      "layer": 3,
+      "aliases": [
+        "光伏",
+        "锂电"
+      ]
+    }
+  ],
+  "edges": [
+    {
+      "from": "u1",
+      "to": "m1",
+      "relation": "减速器→本体"
+    },
+    {
+      "from": "u2",
+      "to": "m1",
+      "relation": "伺服→本体"
+    },
+    {
+      "from": "u3",
+      "to": "m1",
+      "relation": "控制器→本体"
+    },
+    {
+      "from": "m1",
+      "to": "m2",
+      "relation": "本体→集成"
+    },
+    {
+      "from": "m2",
+      "to": "d1",
+      "relation": "集成→汽车"
+    },
+    {
+      "from": "m2",
+      "to": "d2",
+      "relation": "集成→3C"
+    },
+    {
+      "from": "m2",
+      "to": "d3",
+      "relation": "集成→新能源"
+    }
+  ],
+  "companies": {
+    "u1": [
+      "绿的谐波",
+      "双环传动",
+      "中大力德",
+      "哈默纳科"
+    ],
+    "u2": [
+      "汇川技术",
+      "埃斯顿",
+      "雷赛智能"
+    ],
+    "m1": [
+      "ABB",
+      "发那科",
+      "库卡",
+      "埃斯顿",
+      "汇川",
+      "新时达",
+      "埃夫特"
+    ],
+    "m2": [
+      "瑞松科技",
+      "克来机电",
+      "拓斯达"
+    ]
+  }
+}

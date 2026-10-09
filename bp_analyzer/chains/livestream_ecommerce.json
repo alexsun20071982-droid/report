@@ -1,0 +1,123 @@
+{
+  "name": "直播电商产业链",
+  "version": "v1.0",
+  "nodes": [
+    {
+      "id": "u1",
+      "name": "MCN 机构",
+      "tier": "upstream",
+      "layer": 1,
+      "aliases": [
+        "网红公司",
+        "达人机构"
+      ]
+    },
+    {
+      "id": "u2",
+      "name": "主播 / KOL",
+      "tier": "upstream",
+      "layer": 1,
+      "aliases": [
+        "带货主播",
+        "达人"
+      ]
+    },
+    {
+      "id": "u3",
+      "name": "品牌商家",
+      "tier": "upstream",
+      "layer": 1,
+      "aliases": [
+        "白牌",
+        "品牌方"
+      ]
+    },
+    {
+      "id": "m1",
+      "name": "直播平台",
+      "tier": "midstream",
+      "layer": 2,
+      "aliases": [
+        "抖音",
+        "快手",
+        "淘宝直播",
+        "TikTok"
+      ]
+    },
+    {
+      "id": "m2",
+      "name": "供应链",
+      "tier": "midstream",
+      "layer": 2,
+      "aliases": [
+        "选品中心",
+        "云仓"
+      ]
+    },
+    {
+      "id": "m3",
+      "name": "代运营",
+      "tier": "midstream",
+      "layer": 2,
+      "aliases": [
+        "TP 公司",
+        "代播"
+      ]
+    },
+    {
+      "id": "d1",
+      "name": "消费者",
+      "tier": "downstream",
+      "layer": 3,
+      "aliases": [
+        "C 端用户"
+      ]
+    }
+  ],
+  "edges": [
+    {
+      "from": "u1",
+      "to": "u2",
+      "relation": "MCN→主播"
+    },
+    {
+      "from": "u2",
+      "to": "m1",
+      "relation": "主播→平台"
+    },
+    {
+      "from": "u3",
+      "to": "m1",
+      "relation": "商家→平台"
+    },
+    {
+      "from": "u3",
+      "to": "m2",
+      "relation": "商家→供应链"
+    },
+    {
+      "from": "m1",
+      "to": "m3",
+      "relation": "平台→代运营"
+    },
+    {
+      "from": "m1",
+      "to": "d1",
+      "relation": "平台→消费者"
+    }
+  ],
+  "companies": {
+    "u1": [
+      "无忧传媒",
+      "谦寻",
+      "美 ONE",
+      "交个朋友"
+    ],
+    "m1": [
+      "抖音",
+      "快手",
+      "淘宝直播",
+      "TikTok Shop"
+    ]
+  }
+}

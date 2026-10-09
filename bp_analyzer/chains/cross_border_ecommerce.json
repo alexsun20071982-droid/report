@@ -1,0 +1,282 @@
+{
+  "name": "跨境电商产业链",
+  "version": "v1.0",
+  "nodes": [
+    {
+      "id": "u1",
+      "name": "生产商",
+      "tier": "upstream",
+      "layer": 1,
+      "aliases": [
+        "工厂",
+        "代工厂",
+        "OEM",
+        "ODM"
+      ]
+    },
+    {
+      "id": "u2",
+      "name": "品牌商",
+      "tier": "upstream",
+      "layer": 1,
+      "aliases": [
+        "自主品牌",
+        "品牌方"
+      ]
+    },
+    {
+      "id": "u3",
+      "name": "经销商",
+      "tier": "upstream",
+      "layer": 1,
+      "aliases": [
+        "分销商",
+        "渠道商"
+      ]
+    },
+    {
+      "id": "m1",
+      "name": "跨境电商平台",
+      "tier": "midstream",
+      "layer": 2,
+      "aliases": [
+        "亚马逊",
+        "Temu",
+        "TikTok Shop",
+        "Shopee",
+        "eBay",
+        "Walmart"
+      ]
+    },
+    {
+      "id": "m2",
+      "name": "独立站",
+      "tier": "midstream",
+      "layer": 2,
+      "aliases": [
+        "Shopify",
+        "DTC 品牌",
+        "自建站"
+      ]
+    },
+    {
+      "id": "m3",
+      "name": "跨境支付",
+      "tier": "midstream",
+      "layer": 2,
+      "aliases": [
+        "PayPal",
+        "万里汇",
+        "PingPong",
+        "连连支付"
+      ]
+    },
+    {
+      "id": "m4",
+      "name": "跨境物流",
+      "tier": "midstream",
+      "layer": 2,
+      "aliases": [
+        "国际快递",
+        "国际货代",
+        "FBA"
+      ]
+    },
+    {
+      "id": "m5",
+      "name": "海外仓",
+      "tier": "midstream",
+      "layer": 2,
+      "aliases": [
+        "海外仓储",
+        "海外仓配"
+      ]
+    },
+    {
+      "id": "m6",
+      "name": "营销服务",
+      "tier": "midstream",
+      "layer": 2,
+      "aliases": [
+        "KOL",
+        "网红营销",
+        "社媒广告",
+        "SEO"
+      ]
+    },
+    {
+      "id": "d1",
+      "name": "全球消费者",
+      "tier": "downstream",
+      "layer": 3,
+      "aliases": [
+        "终端用户",
+        "海外买家"
+      ]
+    },
+    {
+      "id": "d2",
+      "name": "北美市场",
+      "tier": "downstream",
+      "layer": 3,
+      "aliases": [
+        "美国",
+        "加拿大"
+      ]
+    },
+    {
+      "id": "d3",
+      "name": "欧洲市场",
+      "tier": "downstream",
+      "layer": 3,
+      "aliases": [
+        "欧盟"
+      ]
+    },
+    {
+      "id": "d4",
+      "name": "东南亚市场",
+      "tier": "downstream",
+      "layer": 3,
+      "aliases": [
+        "东盟"
+      ]
+    },
+    {
+      "id": "d5",
+      "name": "拉美市场",
+      "tier": "downstream",
+      "layer": 3,
+      "aliases": [
+        "南美",
+        "巴西",
+        "墨西哥"
+      ]
+    }
+  ],
+  "edges": [
+    {
+      "from": "u1",
+      "to": "m1",
+      "relation": "供货→平台"
+    },
+    {
+      "from": "u1",
+      "to": "m2",
+      "relation": "供货→独立站"
+    },
+    {
+      "from": "u2",
+      "to": "m1",
+      "relation": "品牌入驻→平台"
+    },
+    {
+      "from": "u2",
+      "to": "m2",
+      "relation": "品牌建站"
+    },
+    {
+      "from": "u3",
+      "to": "m1",
+      "relation": "经销→平台"
+    },
+    {
+      "from": "m1",
+      "to": "m3",
+      "relation": "平台→支付"
+    },
+    {
+      "from": "m1",
+      "to": "m4",
+      "relation": "平台→物流"
+    },
+    {
+      "from": "m1",
+      "to": "m5",
+      "relation": "平台→海外仓"
+    },
+    {
+      "from": "m1",
+      "to": "m6",
+      "relation": "平台→营销"
+    },
+    {
+      "from": "m2",
+      "to": "m3",
+      "relation": "独立站→支付"
+    },
+    {
+      "from": "m2",
+      "to": "m4",
+      "relation": "独立站→物流"
+    },
+    {
+      "from": "m2",
+      "to": "m5",
+      "relation": "独立站→海外仓"
+    },
+    {
+      "from": "m4",
+      "to": "d1",
+      "relation": "物流→消费者"
+    },
+    {
+      "from": "m5",
+      "to": "d1",
+      "relation": "海外仓→消费者"
+    },
+    {
+      "from": "d1",
+      "to": "d2",
+      "relation": "全球→北美"
+    },
+    {
+      "from": "d1",
+      "to": "d3",
+      "relation": "全球→欧洲"
+    },
+    {
+      "from": "d1",
+      "to": "d4",
+      "relation": "全球→东南亚"
+    },
+    {
+      "from": "d1",
+      "to": "d5",
+      "relation": "全球→拉美"
+    }
+  ],
+  "companies": {
+    "m1": [
+      "亚马逊",
+      "Temu",
+      "TikTok Shop",
+      "Shopee",
+      "速卖通"
+    ],
+    "m2": [
+      "SHEIN",
+      "Anker",
+      "赛维时代",
+      "华凯易佰"
+    ],
+    "m3": [
+      "PayPal",
+      "万里汇",
+      "PingPong",
+      "连连支付"
+    ],
+    "m4": [
+      "顺丰国际",
+      "菜鸟国际",
+      "京东国际物流",
+      "纵腾集团"
+    ],
+    "m5": [
+      "递四方",
+      "万邑通",
+      "安联锐视",
+      "谷仓海外仓"
+    ]
+  }
+}

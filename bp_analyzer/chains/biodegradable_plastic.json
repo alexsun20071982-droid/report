@@ -1,0 +1,193 @@
+{
+  "name": "生物降解塑料产业链",
+  "version": "v1.0",
+  "nodes": [
+    {
+      "id": "u1",
+      "name": "玉米",
+      "tier": "upstream",
+      "layer": 1,
+      "aliases": [
+        "玉米淀粉"
+      ]
+    },
+    {
+      "id": "u2",
+      "name": "淀粉",
+      "tier": "upstream",
+      "layer": 1
+    },
+    {
+      "id": "u3",
+      "name": "葡萄糖",
+      "tier": "upstream",
+      "layer": 1,
+      "aliases": [
+        "糖原料"
+      ]
+    },
+    {
+      "id": "m1",
+      "name": "PLA",
+      "tier": "midstream",
+      "layer": 2,
+      "aliases": [
+        "聚乳酸",
+        "PLA 树脂"
+      ]
+    },
+    {
+      "id": "m2",
+      "name": "PBS",
+      "tier": "midstream",
+      "layer": 2,
+      "aliases": [
+        "聚丁二酸丁二醇酯"
+      ]
+    },
+    {
+      "id": "m3",
+      "name": "PHA",
+      "tier": "midstream",
+      "layer": 2,
+      "aliases": [
+        "聚羟基脂肪酸酯"
+      ]
+    },
+    {
+      "id": "m4",
+      "name": "PBAT",
+      "tier": "midstream",
+      "layer": 2,
+      "aliases": [
+        "己二酸丁二醇酯"
+      ]
+    },
+    {
+      "id": "m5",
+      "name": "改性料",
+      "tier": "midstream",
+      "layer": 2,
+      "aliases": [
+        "生物基改性"
+      ]
+    },
+    {
+      "id": "d1",
+      "name": "包装薄膜",
+      "tier": "downstream",
+      "layer": 3,
+      "aliases": [
+        "购物袋",
+        "食品包装"
+      ]
+    },
+    {
+      "id": "d2",
+      "name": "一次性餐具",
+      "tier": "downstream",
+      "layer": 3,
+      "aliases": [
+        "餐盒",
+        "吸管"
+      ]
+    },
+    {
+      "id": "d3",
+      "name": "农用地膜",
+      "tier": "downstream",
+      "layer": 3
+    },
+    {
+      "id": "d4",
+      "name": "纺织纤维",
+      "tier": "downstream",
+      "layer": 3,
+      "aliases": [
+        "PLA 纤维"
+      ]
+    }
+  ],
+  "edges": [
+    {
+      "from": "u1",
+      "to": "u2",
+      "relation": "玉米→淀粉"
+    },
+    {
+      "from": "u2",
+      "to": "u3",
+      "relation": "淀粉→葡萄糖"
+    },
+    {
+      "from": "u3",
+      "to": "m1",
+      "relation": "葡萄糖→PLA"
+    },
+    {
+      "from": "u3",
+      "to": "m3",
+      "relation": "葡萄糖→PHA（发酵）"
+    },
+    {
+      "from": "m1",
+      "to": "m5",
+      "relation": "PLA→改性"
+    },
+    {
+      "from": "m2",
+      "to": "m5",
+      "relation": "PBS→改性"
+    },
+    {
+      "from": "m3",
+      "to": "m5",
+      "relation": "PHA→改性"
+    },
+    {
+      "from": "m4",
+      "to": "m5",
+      "relation": "PBAT→改性"
+    },
+    {
+      "from": "m5",
+      "to": "d1",
+      "relation": "改性→包装"
+    },
+    {
+      "from": "m5",
+      "to": "d2",
+      "relation": "改性→餐具"
+    },
+    {
+      "from": "m5",
+      "to": "d3",
+      "relation": "改性→地膜"
+    },
+    {
+      "from": "m5",
+      "to": "d4",
+      "relation": "改性→纤维"
+    }
+  ],
+  "companies": {
+    "m1": [
+      "NatureWorks",
+      "海正生材",
+      "中粮生物"
+    ],
+    "m2": [
+      "安庆和兴",
+      "BASF"
+    ],
+    "m3": [
+      "蓝晶微生物",
+      "微构工坊",
+      "意诚生物"
+    ],
+    "m4": [
+      "金发科技",
+      "彤程新材"
+    ]
+  }
+}

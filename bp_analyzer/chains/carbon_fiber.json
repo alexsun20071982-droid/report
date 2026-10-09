@@ -1,0 +1,149 @@
+{
+  "name": "碳纤维产业链",
+  "version": "v1.0",
+  "nodes": [
+    {
+      "id": "u1",
+      "name": "PAN 原丝",
+      "tier": "upstream",
+      "layer": 1,
+      "aliases": [
+        "聚丙烯腈"
+      ]
+    },
+    {
+      "id": "u2",
+      "name": "沥青基",
+      "tier": "upstream",
+      "layer": 1,
+      "aliases": [
+        "沥青基碳纤维"
+      ]
+    },
+    {
+      "id": "m1",
+      "name": "碳纤维",
+      "tier": "midstream",
+      "layer": 2,
+      "aliases": [
+        "T300",
+        "T700",
+        "T800",
+        "T1000"
+      ]
+    },
+    {
+      "id": "m2",
+      "name": "预浸料",
+      "tier": "midstream",
+      "layer": 2,
+      "aliases": [
+        "Prepreg"
+      ]
+    },
+    {
+      "id": "m3",
+      "name": "复合材料",
+      "tier": "midstream",
+      "layer": 2,
+      "aliases": [
+        "CFRP",
+        "碳纤维复材"
+      ]
+    },
+    {
+      "id": "d1",
+      "name": "航空航天",
+      "tier": "downstream",
+      "layer": 3,
+      "aliases": [
+        "飞机",
+        "导弹"
+      ]
+    },
+    {
+      "id": "d2",
+      "name": "风电叶片",
+      "tier": "downstream",
+      "layer": 3,
+      "aliases": [
+        "风电"
+      ]
+    },
+    {
+      "id": "d3",
+      "name": "汽车",
+      "tier": "downstream",
+      "layer": 3,
+      "aliases": [
+        "新能源汽车",
+        "轻量化"
+      ]
+    },
+    {
+      "id": "d4",
+      "name": "体育休闲",
+      "tier": "downstream",
+      "layer": 3,
+      "aliases": [
+        "钓具",
+        "球拍"
+      ]
+    }
+  ],
+  "edges": [
+    {
+      "from": "u1",
+      "to": "m1",
+      "relation": "PAN→碳纤维"
+    },
+    {
+      "from": "u2",
+      "to": "m1",
+      "relation": "沥青→碳纤维"
+    },
+    {
+      "from": "m1",
+      "to": "m2",
+      "relation": "碳纤维→预浸料"
+    },
+    {
+      "from": "m2",
+      "to": "m3",
+      "relation": "预浸料→复材"
+    },
+    {
+      "from": "m3",
+      "to": "d1",
+      "relation": "复材→航天"
+    },
+    {
+      "from": "m3",
+      "to": "d2",
+      "relation": "复材→风电"
+    },
+    {
+      "from": "m3",
+      "to": "d3",
+      "relation": "复材→汽车"
+    },
+    {
+      "from": "m1",
+      "to": "d4",
+      "relation": "碳纤维→体育"
+    }
+  ],
+  "companies": {
+    "m1": [
+      "中复神鹰",
+      "光威复材",
+      "吉林化纤",
+      "东丽（日本）",
+      "Hexcel"
+    ],
+    "m3": [
+      "威海拓展",
+      "康得复材"
+    ]
+  }
+}

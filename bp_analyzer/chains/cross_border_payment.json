@@ -1,0 +1,115 @@
+{
+  "name": "跨境支付产业链",
+  "version": "v1.0",
+  "nodes": [
+    {
+      "id": "u1",
+      "name": "银行",
+      "tier": "upstream",
+      "layer": 1,
+      "aliases": [
+        "开户行",
+        "清算行"
+      ]
+    },
+    {
+      "id": "u2",
+      "name": "卡组织",
+      "tier": "upstream",
+      "layer": 1,
+      "aliases": [
+        "Visa",
+        "Mastercard",
+        "银联"
+      ]
+    },
+    {
+      "id": "m1",
+      "name": "支付牌照机构",
+      "tier": "midstream",
+      "layer": 2,
+      "aliases": [
+        "第三方支付"
+      ]
+    },
+    {
+      "id": "m2",
+      "name": "跨境收款平台",
+      "tier": "midstream",
+      "layer": 2,
+      "aliases": [
+        "万里汇",
+        "PingPong",
+        "连连"
+      ]
+    },
+    {
+      "id": "m3",
+      "name": "外汇兑换",
+      "tier": "midstream",
+      "layer": 2,
+      "aliases": [
+        "结汇",
+        "汇兑"
+      ]
+    },
+    {
+      "id": "d1",
+      "name": "跨境卖家",
+      "tier": "downstream",
+      "layer": 3,
+      "aliases": [
+        "外贸商家"
+      ]
+    },
+    {
+      "id": "d2",
+      "name": "海外消费者",
+      "tier": "downstream",
+      "layer": 3,
+      "aliases": [
+        "买家"
+      ]
+    }
+  ],
+  "edges": [
+    {
+      "from": "u1",
+      "to": "m1",
+      "relation": "银行→支付机构"
+    },
+    {
+      "from": "u2",
+      "to": "m1",
+      "relation": "卡组织→支付机构"
+    },
+    {
+      "from": "m1",
+      "to": "m2",
+      "relation": "牌照→跨境支付"
+    },
+    {
+      "from": "m2",
+      "to": "m3",
+      "relation": "支付→外汇"
+    },
+    {
+      "from": "m2",
+      "to": "d1",
+      "relation": "支付→卖家"
+    },
+    {
+      "from": "m2",
+      "to": "d2",
+      "relation": "支付→消费者"
+    }
+  ],
+  "companies": {
+    "m2": [
+      "万里汇 WorldFirst",
+      "PingPong",
+      "连连国际",
+      "空中云汇"
+    ]
+  }
+}

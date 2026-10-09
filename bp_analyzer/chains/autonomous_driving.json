@@ -1,0 +1,241 @@
+{
+  "name": "智能驾驶产业链",
+  "version": "v1.0",
+  "nodes": [
+    {
+      "id": "u1",
+      "name": "汽车芯片",
+      "tier": "upstream",
+      "layer": 1,
+      "aliases": [
+        "MCU",
+        "SoC",
+        "车规芯片"
+      ]
+    },
+    {
+      "id": "u2",
+      "name": "传感器",
+      "tier": "upstream",
+      "layer": 1,
+      "aliases": [
+        "摄像头",
+        "毫米波雷达",
+        "超声波雷达",
+        "IMU"
+      ]
+    },
+    {
+      "id": "u3",
+      "name": "激光雷达",
+      "tier": "upstream",
+      "layer": 1,
+      "aliases": [
+        "LiDAR"
+      ]
+    },
+    {
+      "id": "u4",
+      "name": "高精地图 / 定位",
+      "tier": "upstream",
+      "layer": 1,
+      "aliases": [
+        "HD Map",
+        "GNSS"
+      ]
+    },
+    {
+      "id": "u5",
+      "name": "软件算法",
+      "tier": "upstream",
+      "layer": 1,
+      "aliases": [
+        "感知算法",
+        "决策算法",
+        "AI 模型"
+      ]
+    },
+    {
+      "id": "m1",
+      "name": "Tier 1 供应商",
+      "tier": "midstream",
+      "layer": 2,
+      "aliases": [
+        "博世",
+        "大陆",
+        "华为",
+        "德赛西威"
+      ]
+    },
+    {
+      "id": "m2",
+      "name": "整车厂",
+      "tier": "midstream",
+      "layer": 2,
+      "aliases": [
+        "OEM"
+      ]
+    },
+    {
+      "id": "m3",
+      "name": "自动驾驶方案商",
+      "tier": "midstream",
+      "layer": 2,
+      "aliases": [
+        "Waymo",
+        "百度 Apollo",
+        "小马智行",
+        "文远知行"
+      ]
+    },
+    {
+      "id": "m4",
+      "name": "域控制器",
+      "tier": "midstream",
+      "layer": 2,
+      "aliases": [
+        "中央计算单元",
+        "智驾域控"
+      ]
+    },
+    {
+      "id": "d1",
+      "name": "乘用车",
+      "tier": "downstream",
+      "layer": 3,
+      "aliases": [
+        "私家车"
+      ]
+    },
+    {
+      "id": "d2",
+      "name": "商用车",
+      "tier": "downstream",
+      "layer": 3,
+      "aliases": [
+        "客车",
+        "重卡"
+      ]
+    },
+    {
+      "id": "d3",
+      "name": "Robotaxi",
+      "tier": "downstream",
+      "layer": 3,
+      "aliases": [
+        "自动驾驶出租车"
+      ]
+    },
+    {
+      "id": "d4",
+      "name": "智慧物流",
+      "tier": "downstream",
+      "layer": 3,
+      "aliases": [
+        "无人配送",
+        "无人货运"
+      ]
+    }
+  ],
+  "edges": [
+    {
+      "from": "u1",
+      "to": "m4",
+      "relation": "芯片→域控"
+    },
+    {
+      "from": "u2",
+      "to": "m1",
+      "relation": "传感器→Tier1"
+    },
+    {
+      "from": "u2",
+      "to": "m3",
+      "relation": "传感器→方案商"
+    },
+    {
+      "from": "u3",
+      "to": "m3",
+      "relation": "LiDAR→方案商"
+    },
+    {
+      "from": "u4",
+      "to": "m3",
+      "relation": "高精地图→方案商"
+    },
+    {
+      "from": "u5",
+      "to": "m3",
+      "relation": "算法→方案商"
+    },
+    {
+      "from": "m1",
+      "to": "m2",
+      "relation": "Tier1→整车"
+    },
+    {
+      "from": "m3",
+      "to": "m2",
+      "relation": "方案商→整车"
+    },
+    {
+      "from": "m4",
+      "to": "m2",
+      "relation": "域控→整车"
+    },
+    {
+      "from": "m2",
+      "to": "d1",
+      "relation": "整车→乘用"
+    },
+    {
+      "from": "m2",
+      "to": "d2",
+      "relation": "整车→商用"
+    },
+    {
+      "from": "m3",
+      "to": "d3",
+      "relation": "方案商→Robotaxi"
+    },
+    {
+      "from": "m3",
+      "to": "d4",
+      "relation": "方案商→物流"
+    }
+  ],
+  "companies": {
+    "u1": [
+      "英伟达 Orin",
+      "地平线",
+      "黑芝麻",
+      "Mobileye",
+      "高通"
+    ],
+    "u2": [
+      "韦尔股份",
+      "舜宇光学",
+      "华工科技"
+    ],
+    "u3": [
+      "禾赛科技",
+      "速腾聚创",
+      "图达通",
+      "Livox"
+    ],
+    "m1": [
+      "博世",
+      "大陆",
+      "华为",
+      "德赛西威",
+      "经纬恒润"
+    ],
+    "m3": [
+      "百度 Apollo",
+      "小马智行",
+      "文远知行",
+      "Waymo",
+      "Cruise"
+    ]
+  }
+}

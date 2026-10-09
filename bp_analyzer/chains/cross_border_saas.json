@@ -1,0 +1,183 @@
+{
+  "name": "跨境 SaaS 产业链",
+  "version": "v1.0",
+  "nodes": [
+    {
+      "id": "u1",
+      "name": "云基础设施",
+      "tier": "upstream",
+      "layer": 1,
+      "aliases": [
+        "AWS",
+        "Azure",
+        "阿里云"
+      ]
+    },
+    {
+      "id": "u2",
+      "name": "AI / 数据能力",
+      "tier": "upstream",
+      "layer": 1,
+      "aliases": [
+        "大模型 API",
+        "推荐算法"
+      ]
+    },
+    {
+      "id": "u3",
+      "name": "支付通道",
+      "tier": "upstream",
+      "layer": 1,
+      "aliases": [
+        "Stripe",
+        "PayPal",
+        "Airwallex"
+      ]
+    },
+    {
+      "id": "m1",
+      "name": "ERP",
+      "tier": "midstream",
+      "layer": 2,
+      "aliases": [
+        "店小秘",
+        "马帮 ERP",
+        "易仓"
+      ]
+    },
+    {
+      "id": "m2",
+      "name": "建站工具",
+      "tier": "midstream",
+      "layer": 2,
+      "aliases": [
+        "Shopify",
+        "Shoplazza"
+      ]
+    },
+    {
+      "id": "m3",
+      "name": "营销工具",
+      "tier": "midstream",
+      "layer": 2,
+      "aliases": [
+        "Klaviyo",
+        "Mailchimp"
+      ]
+    },
+    {
+      "id": "m4",
+      "name": "客服",
+      "tier": "midstream",
+      "layer": 2,
+      "aliases": [
+        "Zendesk",
+        "Intercom"
+      ]
+    },
+    {
+      "id": "m5",
+      "name": "选品工具",
+      "tier": "midstream",
+      "layer": 2,
+      "aliases": [
+        "Jungle Scout",
+        "Helium 10"
+      ]
+    },
+    {
+      "id": "d1",
+      "name": "跨境卖家",
+      "tier": "downstream",
+      "layer": 3,
+      "aliases": [
+        "品牌出海",
+        "铺货型卖家"
+      ]
+    },
+    {
+      "id": "d2",
+      "name": "代运营",
+      "tier": "downstream",
+      "layer": 3,
+      "aliases": [
+        "TP",
+        "代运营公司"
+      ]
+    },
+    {
+      "id": "d3",
+      "name": "独立站品牌",
+      "tier": "downstream",
+      "layer": 3,
+      "aliases": [
+        "DTC 品牌"
+      ]
+    }
+  ],
+  "edges": [
+    {
+      "from": "u1",
+      "to": "m1",
+      "relation": "云→ERP"
+    },
+    {
+      "from": "u1",
+      "to": "m2",
+      "relation": "云→建站"
+    },
+    {
+      "from": "u2",
+      "to": "m3",
+      "relation": "AI→营销"
+    },
+    {
+      "from": "u2",
+      "to": "m5",
+      "relation": "AI→选品"
+    },
+    {
+      "from": "u3",
+      "to": "m1",
+      "relation": "支付→ERP"
+    },
+    {
+      "from": "m1",
+      "to": "d1",
+      "relation": "ERP→卖家"
+    },
+    {
+      "from": "m2",
+      "to": "d3",
+      "relation": "建站→独立站"
+    },
+    {
+      "from": "m3",
+      "to": "d1",
+      "relation": "营销→卖家"
+    },
+    {
+      "from": "m5",
+      "to": "d2",
+      "relation": "选品→代运营"
+    }
+  ],
+  "companies": {
+    "m1": [
+      "店小秘",
+      "马帮 ERP",
+      "易仓科技",
+      "赛盒科技"
+    ],
+    "m2": [
+      "Shopify",
+      "Shoplazza 店匠",
+      "SHOPLINE"
+    ],
+    "m5": [
+      "Jungle Scout",
+      "Helium 10",
+      "卖家精灵"
+    ]
+  }
+}

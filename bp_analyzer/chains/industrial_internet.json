@@ -1,0 +1,155 @@
+{
+  "name": "工业互联网产业链",
+  "version": "v1.0",
+  "nodes": [
+    {
+      "id": "u1",
+      "name": "工业软件",
+      "tier": "upstream",
+      "layer": 1,
+      "aliases": [
+        "PLM",
+        "MES",
+        "ERP"
+      ]
+    },
+    {
+      "id": "u2",
+      "name": "工业云",
+      "tier": "upstream",
+      "layer": 1,
+      "aliases": [
+        "工业 PaaS"
+      ]
+    },
+    {
+      "id": "u3",
+      "name": "工业 IoT",
+      "tier": "upstream",
+      "layer": 1,
+      "aliases": [
+        "工业网关",
+        "传感器"
+      ]
+    },
+    {
+      "id": "u4",
+      "name": "工业 AI",
+      "tier": "upstream",
+      "layer": 1,
+      "aliases": [
+        "工业大模型",
+        "机器视觉"
+      ]
+    },
+    {
+      "id": "m1",
+      "name": "工业互联网平台",
+      "tier": "midstream",
+      "layer": 2,
+      "aliases": [
+        "树根互联",
+        "卡奥斯",
+        "航天云网"
+      ]
+    },
+    {
+      "id": "m2",
+      "name": "工业 APP",
+      "tier": "midstream",
+      "layer": 2,
+      "aliases": [
+        "垂直应用"
+      ]
+    },
+    {
+      "id": "m3",
+      "name": "系统集成",
+      "tier": "midstream",
+      "layer": 2,
+      "aliases": [
+        "集成商"
+      ]
+    },
+    {
+      "id": "d1",
+      "name": "离散制造",
+      "tier": "downstream",
+      "layer": 3,
+      "aliases": [
+        "汽车",
+        "3C"
+      ]
+    },
+    {
+      "id": "d2",
+      "name": "流程制造",
+      "tier": "downstream",
+      "layer": 3,
+      "aliases": [
+        "化工",
+        "钢铁"
+      ]
+    },
+    {
+      "id": "d3",
+      "name": "中小企业",
+      "tier": "downstream",
+      "layer": 3,
+      "aliases": [
+        "SaaS 化"
+      ]
+    }
+  ],
+  "edges": [
+    {
+      "from": "u1",
+      "to": "m1",
+      "relation": "工业软件→平台"
+    },
+    {
+      "from": "u2",
+      "to": "m1",
+      "relation": "工业云→平台"
+    },
+    {
+      "from": "u3",
+      "to": "m1",
+      "relation": "IoT→平台"
+    },
+    {
+      "from": "u4",
+      "to": "m2",
+      "relation": "AI→APP"
+    },
+    {
+      "from": "m1",
+      "to": "m2",
+      "relation": "平台→APP"
+    },
+    {
+      "from": "m2",
+      "to": "d1",
+      "relation": "APP→离散制造"
+    },
+    {
+      "from": "m2",
+      "to": "d2",
+      "relation": "APP→流程制造"
+    },
+    {
+      "from": "m3",
+      "to": "d3",
+      "relation": "集成→中小"
+    }
+  ],
+  "companies": {
+    "m1": [
+      "树根互联",
+      "卡奥斯 COSMOPlat",
+      "航天云网",
+      "阿里飞象",
+      "腾讯 WeMake"
+    ]
+  }
+}

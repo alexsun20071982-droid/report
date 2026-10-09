@@ -1,0 +1,240 @@
+{
+  "name": "锂电池产业链",
+  "version": "v1.0",
+  "nodes": [
+    {
+      "id": "u1",
+      "name": "锂矿",
+      "tier": "upstream",
+      "layer": 1,
+      "aliases": [
+        "锂资源",
+        "碳酸锂",
+        "氢氧化锂"
+      ]
+    },
+    {
+      "id": "u2",
+      "name": "钴镍矿",
+      "tier": "upstream",
+      "layer": 1,
+      "aliases": [
+        "钴矿",
+        "镍矿"
+      ]
+    },
+    {
+      "id": "u3",
+      "name": "石墨",
+      "tier": "upstream",
+      "layer": 1,
+      "aliases": [
+        "负极原料",
+        "天然石墨"
+      ]
+    },
+    {
+      "id": "m1",
+      "name": "正极材料",
+      "tier": "midstream",
+      "layer": 2,
+      "aliases": [
+        "三元材料",
+        "磷酸铁锂",
+        "钴酸锂"
+      ]
+    },
+    {
+      "id": "m2",
+      "name": "负极材料",
+      "tier": "midstream",
+      "layer": 2,
+      "aliases": [
+        "人造石墨",
+        "硅碳负极"
+      ]
+    },
+    {
+      "id": "m3",
+      "name": "电解液",
+      "tier": "midstream",
+      "layer": 2,
+      "aliases": [
+        "六氟磷酸锂",
+        "电解质"
+      ]
+    },
+    {
+      "id": "m4",
+      "name": "隔膜",
+      "tier": "midstream",
+      "layer": 2,
+      "aliases": [
+        "PE 隔膜",
+        "PP 隔膜"
+      ]
+    },
+    {
+      "id": "m5",
+      "name": "电芯 / 电池",
+      "tier": "midstream",
+      "layer": 2,
+      "aliases": [
+        "动力电池",
+        "储能电池",
+        "消费电池"
+      ]
+    },
+    {
+      "id": "m6",
+      "name": "PACK / BMS",
+      "tier": "midstream",
+      "layer": 2,
+      "aliases": [
+        "电池包",
+        "电池管理系统"
+      ]
+    },
+    {
+      "id": "d1",
+      "name": "新能源汽车",
+      "tier": "downstream",
+      "layer": 3,
+      "aliases": [
+        "电动车",
+        "乘用车",
+        "商用车"
+      ]
+    },
+    {
+      "id": "d2",
+      "name": "储能系统",
+      "tier": "downstream",
+      "layer": 3,
+      "aliases": [
+        "工商业储能",
+        "家庭储能",
+        "电网储能"
+      ]
+    },
+    {
+      "id": "d3",
+      "name": "消费电子",
+      "tier": "downstream",
+      "layer": 3,
+      "aliases": [
+        "手机电池",
+        "笔电电池"
+      ]
+    },
+    {
+      "id": "d4",
+      "name": "电池回收",
+      "tier": "downstream",
+      "layer": 3,
+      "aliases": [
+        "梯次利用",
+        "再生材料"
+      ]
+    }
+  ],
+  "edges": [
+    {
+      "from": "u1",
+      "to": "m1",
+      "relation": "锂矿→正极"
+    },
+    {
+      "from": "u2",
+      "to": "m1",
+      "relation": "钴镍→正极"
+    },
+    {
+      "from": "u3",
+      "to": "m2",
+      "relation": "石墨→负极"
+    },
+    {
+      "from": "m1",
+      "to": "m5",
+      "relation": "正极→电芯"
+    },
+    {
+      "from": "m2",
+      "to": "m5",
+      "relation": "负极→电芯"
+    },
+    {
+      "from": "m3",
+      "to": "m5",
+      "relation": "电解液→电芯"
+    },
+    {
+      "from": "m4",
+      "to": "m5",
+      "relation": "隔膜→电芯"
+    },
+    {
+      "from": "m5",
+      "to": "m6",
+      "relation": "电芯→PACK"
+    },
+    {
+      "from": "m5",
+      "to": "d1",
+      "relation": "电芯→新能源车"
+    },
+    {
+      "from": "m5",
+      "to": "d2",
+      "relation": "电芯→储能"
+    },
+    {
+      "from": "m5",
+      "to": "d3",
+      "relation": "电芯→消费电子"
+    },
+    {
+      "from": "m5",
+      "to": "d4",
+      "relation": "电芯→回收"
+    }
+  ],
+  "companies": {
+    "u1": [
+      "赣锋锂业",
+      "天齐锂业",
+      "盐湖股份",
+      "永兴材料"
+    ],
+    "m1": [
+      "容百科技",
+      "当升科技",
+      "长远锂科",
+      "湖南裕能",
+      "德方纳米"
+    ],
+    "m2": [
+      "贝特瑞",
+      "杉杉股份",
+      "璞泰来"
+    ],
+    "m3": [
+      "天赐材料",
+      "多氟多",
+      "新宙邦"
+    ],
+    "m4": [
+      "恩捷股份",
+      "星源材质",
+      "中材科技"
+    ],
+    "m5": [
+      "宁德时代",
+      "比亚迪",
+      "国轩高科",
+      "亿纬锂能",
+      "中创新航"
+    ]
+  }
+}

@@ -1,0 +1,184 @@
+{
+  "name": "新能源汽车产业链",
+  "version": "v1.0",
+  "nodes": [
+    {
+      "id": "u1",
+      "name": "锂矿 / 镍矿",
+      "tier": "upstream",
+      "layer": 1
+    },
+    {
+      "id": "u2",
+      "name": "正极材料",
+      "tier": "upstream",
+      "layer": 1
+    },
+    {
+      "id": "u3",
+      "name": "负极材料",
+      "tier": "upstream",
+      "layer": 1
+    },
+    {
+      "id": "m1",
+      "name": "动力电池",
+      "tier": "midstream",
+      "layer": 2,
+      "aliases": [
+        "电池包",
+        "BMS"
+      ]
+    },
+    {
+      "id": "m2",
+      "name": "电机",
+      "tier": "midstream",
+      "layer": 2,
+      "aliases": [
+        "驱动电机"
+      ]
+    },
+    {
+      "id": "m3",
+      "name": "电控",
+      "tier": "midstream",
+      "layer": 2,
+      "aliases": [
+        "电控系统"
+      ]
+    },
+    {
+      "id": "m4",
+      "name": "整车",
+      "tier": "midstream",
+      "layer": 2,
+      "aliases": [
+        "新能源车",
+        "纯电",
+        "混动"
+      ]
+    },
+    {
+      "id": "m5",
+      "name": "充电桩",
+      "tier": "midstream",
+      "layer": 2,
+      "aliases": [
+        "充电基础设施"
+      ]
+    },
+    {
+      "id": "d1",
+      "name": "乘用车",
+      "tier": "downstream",
+      "layer": 3,
+      "aliases": [
+        "私家车"
+      ]
+    },
+    {
+      "id": "d2",
+      "name": "商用车",
+      "tier": "downstream",
+      "layer": 3,
+      "aliases": [
+        "客车",
+        "物流车"
+      ]
+    },
+    {
+      "id": "d3",
+      "name": "出口",
+      "tier": "downstream",
+      "layer": 3,
+      "aliases": [
+        "海外市场"
+      ]
+    }
+  ],
+  "edges": [
+    {
+      "from": "u1",
+      "to": "u2",
+      "relation": "锂镍→正极"
+    },
+    {
+      "from": "u1",
+      "to": "u3",
+      "relation": "锂→负极"
+    },
+    {
+      "from": "u2",
+      "to": "m1",
+      "relation": "正极→电池"
+    },
+    {
+      "from": "u3",
+      "to": "m1",
+      "relation": "负极→电池"
+    },
+    {
+      "from": "m1",
+      "to": "m4",
+      "relation": "电池→整车"
+    },
+    {
+      "from": "m2",
+      "to": "m4",
+      "relation": "电机→整车"
+    },
+    {
+      "from": "m3",
+      "to": "m4",
+      "relation": "电控→整车"
+    },
+    {
+      "from": "m5",
+      "to": "d1",
+      "relation": "充电桩→乘用"
+    },
+    {
+      "from": "m4",
+      "to": "d1",
+      "relation": "整车→乘用"
+    },
+    {
+      "from": "m4",
+      "to": "d2",
+      "relation": "整车→商用"
+    },
+    {
+      "from": "m4",
+      "to": "d3",
+      "relation": "整车→出口"
+    }
+  ],
+  "companies": {
+    "m1": [
+      "宁德时代",
+      "比亚迪",
+      "亿纬锂能",
+      "国轩高科"
+    ],
+    "m2": [
+      "比亚迪",
+      "方正电机",
+      "精进电动"
+    ],
+    "m4": [
+      "比亚迪",
+      "特斯拉",
+      "蔚来",
+      "小鹏",
+      "理想",
+      "上汽",
+      "广汽"
+    ],
+    "m5": [
+      "特来电",
+      "星星充电",
+      "国家电网"
+    ]
+  }
+}

@@ -1,0 +1,154 @@
+{
+  "name": "医疗器械产业链",
+  "version": "v1.0",
+  "nodes": [
+    {
+      "id": "u1",
+      "name": "电子元件",
+      "tier": "upstream",
+      "layer": 1,
+      "aliases": [
+        "芯片",
+        "传感器"
+      ]
+    },
+    {
+      "id": "u2",
+      "name": "医用材料",
+      "tier": "upstream",
+      "layer": 1,
+      "aliases": [
+        "生物相容材料",
+        "钛合金"
+      ]
+    },
+    {
+      "id": "u3",
+      "name": "光学元件",
+      "tier": "upstream",
+      "layer": 1,
+      "aliases": [
+        "镜片",
+        "光纤"
+      ]
+    },
+    {
+      "id": "m1",
+      "name": "高值耗材",
+      "tier": "midstream",
+      "layer": 2,
+      "aliases": [
+        "心血管耗材",
+        "骨科耗材"
+      ]
+    },
+    {
+      "id": "m2",
+      "name": "医疗设备",
+      "tier": "midstream",
+      "layer": 2,
+      "aliases": [
+        "影像设备",
+        "IVD"
+      ]
+    },
+    {
+      "id": "m3",
+      "name": "体外诊断 IVD",
+      "tier": "midstream",
+      "layer": 2,
+      "aliases": [
+        "试剂",
+        "诊断设备"
+      ]
+    },
+    {
+      "id": "d1",
+      "name": "三级医院",
+      "tier": "downstream",
+      "layer": 3,
+      "aliases": [
+        "大型医院"
+      ]
+    },
+    {
+      "id": "d2",
+      "name": "基层医疗",
+      "tier": "downstream",
+      "layer": 3,
+      "aliases": [
+        "社区医院"
+      ]
+    },
+    {
+      "id": "d3",
+      "name": "家庭 / 消费",
+      "tier": "downstream",
+      "layer": 3,
+      "aliases": [
+        "血糖仪",
+        "血压计"
+      ]
+    }
+  ],
+  "edges": [
+    {
+      "from": "u1",
+      "to": "m2",
+      "relation": "电子→设备"
+    },
+    {
+      "from": "u2",
+      "to": "m1",
+      "relation": "材料→耗材"
+    },
+    {
+      "from": "u3",
+      "to": "m2",
+      "relation": "光学→设备"
+    },
+    {
+      "from": "m1",
+      "to": "d1",
+      "relation": "耗材→三级医院"
+    },
+    {
+      "from": "m2",
+      "to": "d1",
+      "relation": "设备→三级医院"
+    },
+    {
+      "from": "m3",
+      "to": "d1",
+      "relation": "IVD→三级医院"
+    },
+    {
+      "from": "m3",
+      "to": "d2",
+      "relation": "IVD→基层"
+    },
+    {
+      "from": "m1",
+      "to": "d3",
+      "relation": "耗材→家庭"
+    }
+  ],
+  "companies": {
+    "m1": [
+      "微创医疗",
+      "乐普医疗",
+      "威高股份",
+      "大博医疗"
+    ],
+    "m2": [
+      "联影医疗",
+      "迈瑞医疗",
+      "东软医疗"
+    ],
+    "m3": [
+      "安图生物",
+      "迈克生物",
+      "万孚生物"
+    ]
+  }
+}

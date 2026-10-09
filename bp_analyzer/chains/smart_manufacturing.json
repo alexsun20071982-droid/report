@@ -1,0 +1,166 @@
+{
+  "name": "智能制造产业链",
+  "version": "v1.0",
+  "nodes": [
+    {
+      "id": "u1",
+      "name": "数控系统 / 工业软件",
+      "tier": "upstream",
+      "layer": 1,
+      "aliases": [
+        "CNC",
+        "MES"
+      ]
+    },
+    {
+      "id": "u2",
+      "name": "工业机器人",
+      "tier": "upstream",
+      "layer": 1,
+      "aliases": [
+        "机械臂",
+        "AGV"
+      ]
+    },
+    {
+      "id": "u3",
+      "name": "传感器 / 视觉",
+      "tier": "upstream",
+      "layer": 1,
+      "aliases": [
+        "机器视觉",
+        "工业相机"
+      ]
+    },
+    {
+      "id": "u4",
+      "name": "3D 打印",
+      "tier": "upstream",
+      "layer": 1,
+      "aliases": [
+        "增材制造"
+      ]
+    },
+    {
+      "id": "m1",
+      "name": "智能装备",
+      "tier": "midstream",
+      "layer": 2,
+      "aliases": [
+        "智能机床",
+        "智能产线"
+      ]
+    },
+    {
+      "id": "m2",
+      "name": "智能工厂",
+      "tier": "midstream",
+      "layer": 2,
+      "aliases": [
+        "灯塔工厂"
+      ]
+    },
+    {
+      "id": "m3",
+      "name": "柔性制造",
+      "tier": "midstream",
+      "layer": 2,
+      "aliases": [
+        "C2M"
+      ]
+    },
+    {
+      "id": "d1",
+      "name": "汽车",
+      "tier": "downstream",
+      "layer": 3,
+      "aliases": [
+        "整车厂"
+      ]
+    },
+    {
+      "id": "d2",
+      "name": "3C 电子",
+      "tier": "downstream",
+      "layer": 3,
+      "aliases": [
+        "手机厂"
+      ]
+    },
+    {
+      "id": "d3",
+      "name": "新能源",
+      "tier": "downstream",
+      "layer": 3,
+      "aliases": [
+        "光伏",
+        "锂电"
+      ]
+    }
+  ],
+  "edges": [
+    {
+      "from": "u1",
+      "to": "m1",
+      "relation": "数控→装备"
+    },
+    {
+      "from": "u2",
+      "to": "m1",
+      "relation": "机器人→装备"
+    },
+    {
+      "from": "u2",
+      "to": "m2",
+      "relation": "机器人→工厂"
+    },
+    {
+      "from": "u3",
+      "to": "m1",
+      "relation": "视觉→装备"
+    },
+    {
+      "from": "u4",
+      "to": "m3",
+      "relation": "3D 打印→柔性"
+    },
+    {
+      "from": "m1",
+      "to": "m2",
+      "relation": "装备→工厂"
+    },
+    {
+      "from": "m2",
+      "to": "d1",
+      "relation": "工厂→汽车"
+    },
+    {
+      "from": "m2",
+      "to": "d2",
+      "relation": "工厂→3C"
+    },
+    {
+      "from": "m2",
+      "to": "d3",
+      "relation": "工厂→新能源"
+    }
+  ],
+  "companies": {
+    "m2": [
+      "西门子",
+      "博世",
+      "海尔",
+      "美的",
+      "宁德时代",
+      "富士康",
+      "宝钢"
+    ],
+    "m1": [
+      "海天精工",
+      "创世纪",
+      "秦川机床",
+      "拓斯达",
+      "埃斯顿"
+    ]
+  }
+}

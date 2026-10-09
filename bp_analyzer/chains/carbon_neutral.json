@@ -1,0 +1,151 @@
+{
+  "name": "碳中和产业链",
+  "version": "v1.0",
+  "nodes": [
+    {
+      "id": "u1",
+      "name": "碳排放核算",
+      "tier": "upstream",
+      "layer": 1,
+      "aliases": [
+        "碳盘查",
+        "ISO 14064"
+      ]
+    },
+    {
+      "id": "u2",
+      "name": "碳监测",
+      "tier": "upstream",
+      "layer": 1,
+      "aliases": [
+        "CEMS",
+        "碳监测设备"
+      ]
+    },
+    {
+      "id": "m1",
+      "name": "碳核查",
+      "tier": "midstream",
+      "layer": 2,
+      "aliases": [
+        "第三方核查"
+      ]
+    },
+    {
+      "id": "m2",
+      "name": "碳认证",
+      "tier": "midstream",
+      "layer": 2,
+      "aliases": [
+        "碳中和认证",
+        "ESG 认证"
+      ]
+    },
+    {
+      "id": "m3",
+      "name": "碳交易所",
+      "tier": "midstream",
+      "layer": 2,
+      "aliases": [
+        "全国碳市场",
+        "地方碳市场"
+      ]
+    },
+    {
+      "id": "m4",
+      "name": "碳金融",
+      "tier": "midstream",
+      "layer": 2,
+      "aliases": [
+        "碳质押",
+        "碳基金",
+        "碳期货"
+      ]
+    },
+    {
+      "id": "d1",
+      "name": "高排放企业",
+      "tier": "downstream",
+      "layer": 3,
+      "aliases": [
+        "火电",
+        "钢铁",
+        "水泥"
+      ]
+    },
+    {
+      "id": "d2",
+      "name": "新能源企业",
+      "tier": "downstream",
+      "layer": 3,
+      "aliases": [
+        "光伏",
+        "风电"
+      ]
+    },
+    {
+      "id": "d3",
+      "name": "碳普惠",
+      "tier": "downstream",
+      "layer": 3,
+      "aliases": [
+        "个人碳账户",
+        "绿色出行"
+      ]
+    }
+  ],
+  "edges": [
+    {
+      "from": "u1",
+      "to": "m1",
+      "relation": "核算→核查"
+    },
+    {
+      "from": "u2",
+      "to": "m1",
+      "relation": "监测→核查"
+    },
+    {
+      "from": "m1",
+      "to": "m2",
+      "relation": "核查→认证"
+    },
+    {
+      "from": "m1",
+      "to": "m3",
+      "relation": "核查→交易所"
+    },
+    {
+      "from": "m3",
+      "to": "m4",
+      "relation": "交易→金融"
+    },
+    {
+      "from": "d1",
+      "to": "m1",
+      "relation": "高排放→核查"
+    },
+    {
+      "from": "d2",
+      "to": "m3",
+      "relation": "新能源→交易（CCER）"
+    },
+    {
+      "from": "d3",
+      "to": "m3",
+      "relation": "碳普惠→交易"
+    }
+  ],
+  "companies": {
+    "m1": [
+      "中国质量认证中心",
+      "SGS",
+      "TÜV",
+      "华测检测"
+    ],
+    "m3": [
+      "上海环境能源交易所",
+      "广州碳排放权交易所"
+    ]
+  }
+}

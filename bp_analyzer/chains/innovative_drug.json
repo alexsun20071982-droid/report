@@ -1,0 +1,165 @@
+{
+  "name": "创新药产业链",
+  "version": "v1.0",
+  "nodes": [
+    {
+      "id": "u1",
+      "name": "靶点发现",
+      "tier": "upstream",
+      "layer": 1,
+      "aliases": [
+        "基础研究"
+      ]
+    },
+    {
+      "id": "u2",
+      "name": "化合物筛选",
+      "tier": "upstream",
+      "layer": 1,
+      "aliases": [
+        "药物筛选",
+        "Hit Identification"
+      ]
+    },
+    {
+      "id": "u3",
+      "name": "动物模型",
+      "tier": "upstream",
+      "layer": 1,
+      "aliases": [
+        "CRO 动物实验"
+      ]
+    },
+    {
+      "id": "m1",
+      "name": "临床前 CRO",
+      "tier": "midstream",
+      "layer": 2,
+      "aliases": [
+        "药明康德",
+        "康龙化成"
+      ]
+    },
+    {
+      "id": "m2",
+      "name": "临床 CRO",
+      "tier": "midstream",
+      "layer": 2,
+      "aliases": [
+        "泰格医药",
+        "方达医药"
+      ]
+    },
+    {
+      "id": "m3",
+      "name": "CDMO",
+      "tier": "midstream",
+      "layer": 2,
+      "aliases": [
+        "凯莱英",
+        "博腾股份"
+      ]
+    },
+    {
+      "id": "m4",
+      "name": "CMO",
+      "tier": "midstream",
+      "layer": 2,
+      "aliases": [
+        "合全药业"
+      ]
+    },
+    {
+      "id": "d1",
+      "name": "创新药企",
+      "tier": "downstream",
+      "layer": 3,
+      "aliases": [
+        "Biotech",
+        "Big Pharma"
+      ]
+    },
+    {
+      "id": "d2",
+      "name": "仿制药企",
+      "tier": "downstream",
+      "layer": 3,
+      "aliases": [
+        "Generic"
+      ]
+    },
+    {
+      "id": "d3",
+      "name": "医院",
+      "tier": "downstream",
+      "layer": 3,
+      "aliases": [
+        "临床终端"
+      ]
+    }
+  ],
+  "edges": [
+    {
+      "from": "u1",
+      "to": "m1",
+      "relation": "靶点→临床前"
+    },
+    {
+      "from": "u2",
+      "to": "m1",
+      "relation": "化合物→临床前"
+    },
+    {
+      "from": "u3",
+      "to": "m1",
+      "relation": "动物→临床前"
+    },
+    {
+      "from": "m1",
+      "to": "m2",
+      "relation": "临床前→临床"
+    },
+    {
+      "from": "m1",
+      "to": "m3",
+      "relation": "临床前→CDMO"
+    },
+    {
+      "from": "m2",
+      "to": "d1",
+      "relation": "临床→药企"
+    },
+    {
+      "from": "m3",
+      "to": "d1",
+      "relation": "CDMO→药企"
+    },
+    {
+      "from": "d1",
+      "to": "d3",
+      "relation": "药企→医院"
+    }
+  ],
+  "companies": {
+    "m1": [
+      "药明康德",
+      "康龙化成",
+      "睿智医药"
+    ],
+    "m2": [
+      "泰格医药",
+      "方达医药"
+    ],
+    "m3": [
+      "凯莱英",
+      "博腾股份",
+      "九洲药业"
+    ],
+    "d1": [
+      "恒瑞医药",
+      "百济神州",
+      "信达生物",
+      "君实生物"
+    ]
+  }
+}

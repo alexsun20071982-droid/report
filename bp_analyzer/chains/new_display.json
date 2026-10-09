@@ -1,0 +1,196 @@
+{
+  "name": "新型显示产业链",
+  "version": "v1.0",
+  "nodes": [
+    {
+      "id": "u1",
+      "name": "玻璃基板",
+      "tier": "upstream",
+      "layer": 1,
+      "aliases": [
+        "基板玻璃"
+      ]
+    },
+    {
+      "id": "u2",
+      "name": "有机材料",
+      "tier": "upstream",
+      "layer": 1,
+      "aliases": [
+        "OLED 材料"
+      ]
+    },
+    {
+      "id": "u3",
+      "name": "偏光片",
+      "tier": "upstream",
+      "layer": 1,
+      "aliases": [
+        "偏振片"
+      ]
+    },
+    {
+      "id": "u4",
+      "name": "驱动 IC",
+      "tier": "upstream",
+      "layer": 1,
+      "aliases": [
+        "DDIC"
+      ]
+    },
+    {
+      "id": "m1",
+      "name": "LCD 面板",
+      "tier": "midstream",
+      "layer": 2,
+      "aliases": [
+        "液晶面板"
+      ]
+    },
+    {
+      "id": "m2",
+      "name": "OLED 面板",
+      "tier": "midstream",
+      "layer": 2,
+      "aliases": [
+        "AMOLED"
+      ]
+    },
+    {
+      "id": "m3",
+      "name": "Micro-LED",
+      "tier": "midstream",
+      "layer": 2,
+      "aliases": [
+        "Mini-LED"
+      ]
+    },
+    {
+      "id": "m4",
+      "name": "模组",
+      "tier": "midstream",
+      "layer": 2,
+      "aliases": [
+        "显示模组"
+      ]
+    },
+    {
+      "id": "d1",
+      "name": "电视",
+      "tier": "downstream",
+      "layer": 3,
+      "aliases": [
+        "智能电视"
+      ]
+    },
+    {
+      "id": "d2",
+      "name": "手机",
+      "tier": "downstream",
+      "layer": 3,
+      "aliases": [
+        "智能手机"
+      ]
+    },
+    {
+      "id": "d3",
+      "name": "车载显示",
+      "tier": "downstream",
+      "layer": 3,
+      "aliases": [
+        "车载屏"
+      ]
+    },
+    {
+      "id": "d4",
+      "name": "AR / VR",
+      "tier": "downstream",
+      "layer": 3,
+      "aliases": [
+        "近眼显示"
+      ]
+    }
+  ],
+  "edges": [
+    {
+      "from": "u1",
+      "to": "m1",
+      "relation": "基板→LCD"
+    },
+    {
+      "from": "u1",
+      "to": "m2",
+      "relation": "基板→OLED"
+    },
+    {
+      "from": "u2",
+      "to": "m2",
+      "relation": "有机材料→OLED"
+    },
+    {
+      "from": "u3",
+      "to": "m1",
+      "relation": "偏光片→LCD"
+    },
+    {
+      "from": "u4",
+      "to": "m1",
+      "relation": "DDIC→LCD"
+    },
+    {
+      "from": "u4",
+      "to": "m2",
+      "relation": "DDIC→OLED"
+    },
+    {
+      "from": "m1",
+      "to": "m4",
+      "relation": "LCD→模组"
+    },
+    {
+      "from": "m2",
+      "to": "m4",
+      "relation": "OLED→模组"
+    },
+    {
+      "from": "m4",
+      "to": "d1",
+      "relation": "模组→电视"
+    },
+    {
+      "from": "m2",
+      "to": "d2",
+      "relation": "OLED→手机"
+    },
+    {
+      "from": "m2",
+      "to": "d3",
+      "relation": "OLED→车载"
+    },
+    {
+      "from": "m3",
+      "to": "d4",
+      "relation": "Micro-LED→AR/VR"
+    }
+  ],
+  "companies": {
+    "m1": [
+      "京东方",
+      "华星光电",
+      "惠科",
+      "群创"
+    ],
+    "m2": [
+      "三星显示",
+      "LG Display",
+      "京东方",
+      "维信诺"
+    ],
+    "m3": [
+      "京东方",
+      "华灿光电",
+      "三安光电",
+      "錼创"
+    ]
+  }
+}

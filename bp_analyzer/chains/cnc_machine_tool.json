@@ -1,0 +1,141 @@
+{
+  "name": "数控机床产业链",
+  "version": "v1.0",
+  "nodes": [
+    {
+      "id": "u1",
+      "name": "数控系统",
+      "tier": "upstream",
+      "layer": 1,
+      "aliases": [
+        "CNC",
+        "发那科",
+        "西门子"
+      ]
+    },
+    {
+      "id": "u2",
+      "name": "伺服电机",
+      "tier": "upstream",
+      "layer": 1
+    },
+    {
+      "id": "u3",
+      "name": "主轴",
+      "tier": "upstream",
+      "layer": 1,
+      "aliases": [
+        "电主轴"
+      ]
+    },
+    {
+      "id": "u4",
+      "name": "刀库 / 刀具",
+      "tier": "upstream",
+      "layer": 1,
+      "aliases": [
+        "金属切削刀具"
+      ]
+    },
+    {
+      "id": "m1",
+      "name": "数控机床",
+      "tier": "midstream",
+      "layer": 2,
+      "aliases": [
+        "CNC 机床",
+        "加工中心"
+      ]
+    },
+    {
+      "id": "m2",
+      "name": "工业机器人",
+      "tier": "midstream",
+      "layer": 2,
+      "aliases": [
+        "机床机器人"
+      ]
+    },
+    {
+      "id": "d1",
+      "name": "汽车",
+      "tier": "downstream",
+      "layer": 3,
+      "aliases": [
+        "零部件加工"
+      ]
+    },
+    {
+      "id": "d2",
+      "name": "航空航天",
+      "tier": "downstream",
+      "layer": 3,
+      "aliases": [
+        "高精度零件"
+      ]
+    },
+    {
+      "id": "d3",
+      "name": "模具",
+      "tier": "downstream",
+      "layer": 3,
+      "aliases": [
+        "精密模具"
+      ]
+    }
+  ],
+  "edges": [
+    {
+      "from": "u1",
+      "to": "m1",
+      "relation": "数控系统→机床"
+    },
+    {
+      "from": "u2",
+      "to": "m1",
+      "relation": "伺服→机床"
+    },
+    {
+      "from": "u3",
+      "to": "m1",
+      "relation": "主轴→机床"
+    },
+    {
+      "from": "u4",
+      "to": "m1",
+      "relation": "刀具→机床"
+    },
+    {
+      "from": "m1",
+      "to": "d1",
+      "relation": "机床→汽车"
+    },
+    {
+      "from": "m1",
+      "to": "d2",
+      "relation": "机床→航天"
+    },
+    {
+      "from": "m1",
+      "to": "d3",
+      "relation": "机床→模具"
+    }
+  ],
+  "companies": {
+    "u1": [
+      "发那科",
+      "西门子",
+      "海德汉",
+      "华中数控",
+      "广州数控"
+    ],
+    "m1": [
+      "山崎马扎克",
+      "大隈",
+      "DMG MORI",
+      "秦川机床",
+      "海天精工",
+      "创世纪"
+    ]
+  }
+}

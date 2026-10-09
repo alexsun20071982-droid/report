@@ -1,0 +1,164 @@
+{
+  "name": "储能产业链",
+  "version": "v1.0",
+  "nodes": [
+    {
+      "id": "u1",
+      "name": "电池",
+      "tier": "upstream",
+      "layer": 1,
+      "aliases": [
+        "电芯",
+        "锂电池",
+        "钠电池"
+      ]
+    },
+    {
+      "id": "u2",
+      "name": "PCS",
+      "tier": "upstream",
+      "layer": 1,
+      "aliases": [
+        "储能变流器",
+        "双向变流器"
+      ]
+    },
+    {
+      "id": "u3",
+      "name": "BMS",
+      "tier": "upstream",
+      "layer": 1,
+      "aliases": [
+        "电池管理系统"
+      ]
+    },
+    {
+      "id": "u4",
+      "name": "EMS",
+      "tier": "upstream",
+      "layer": 1,
+      "aliases": [
+        "能源管理系统"
+      ]
+    },
+    {
+      "id": "m1",
+      "name": "系统集成",
+      "tier": "midstream",
+      "layer": 2,
+      "aliases": [
+        "储能系统集成",
+        "EPC"
+      ]
+    },
+    {
+      "id": "m2",
+      "name": "温控",
+      "tier": "midstream",
+      "layer": 2,
+      "aliases": [
+        "液冷",
+        "风冷"
+      ]
+    },
+    {
+      "id": "m3",
+      "name": "消防",
+      "tier": "midstream",
+      "layer": 2,
+      "aliases": [
+        "储能消防"
+      ]
+    },
+    {
+      "id": "d1",
+      "name": "工商业储能",
+      "tier": "downstream",
+      "layer": 3,
+      "aliases": [
+        "用户侧储能"
+      ]
+    },
+    {
+      "id": "d2",
+      "name": "电网侧储能",
+      "tier": "downstream",
+      "layer": 3,
+      "aliases": [
+        "独立储能电站"
+      ]
+    },
+    {
+      "id": "d3",
+      "name": "家庭储能",
+      "tier": "downstream",
+      "layer": 3,
+      "aliases": [
+        "户储",
+        "户用电池"
+      ]
+    }
+  ],
+  "edges": [
+    {
+      "from": "u1",
+      "to": "m1",
+      "relation": "电池→集成"
+    },
+    {
+      "from": "u2",
+      "to": "m1",
+      "relation": "PCS→集成"
+    },
+    {
+      "from": "u3",
+      "to": "m1",
+      "relation": "BMS→集成"
+    },
+    {
+      "from": "u4",
+      "to": "m1",
+      "relation": "EMS→集成"
+    },
+    {
+      "from": "m2",
+      "to": "m1",
+      "relation": "温控→集成"
+    },
+    {
+      "from": "m3",
+      "to": "m1",
+      "relation": "消防→集成"
+    },
+    {
+      "from": "m1",
+      "to": "d1",
+      "relation": "集成→工商业"
+    },
+    {
+      "from": "m1",
+      "to": "d2",
+      "relation": "集成→电网"
+    },
+    {
+      "from": "m1",
+      "to": "d3",
+      "relation": "集成→户储"
+    }
+  ],
+  "companies": {
+    "u1": [
+      "宁德时代",
+      "比亚迪",
+      "亿纬锂能",
+      "海辰储能",
+      "瑞浦兰钧"
+    ],
+    "m1": [
+      "阳光电源",
+      "海博思创",
+      "科华数据",
+      "南都电源"
+    ]
+  }
+}

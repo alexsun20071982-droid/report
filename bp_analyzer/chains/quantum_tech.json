@@ -1,0 +1,140 @@
+{
+  "name": "量子科技产业链",
+  "version": "v1.0",
+  "nodes": [
+    {
+      "id": "u1",
+      "name": "量子芯片",
+      "tier": "upstream",
+      "layer": 1,
+      "aliases": [
+        "超导",
+        "离子阱",
+        "光量子"
+      ]
+    },
+    {
+      "id": "u2",
+      "name": "量子测控",
+      "tier": "upstream",
+      "layer": 1,
+      "aliases": [
+        "极低温",
+        "激光",
+        "微波控制"
+      ]
+    },
+    {
+      "id": "u3",
+      "name": "稀释制冷机",
+      "tier": "upstream",
+      "layer": 1,
+      "aliases": [
+        "极低温设备"
+      ]
+    },
+    {
+      "id": "m1",
+      "name": "量子计算机",
+      "tier": "midstream",
+      "layer": 2,
+      "aliases": [
+        "超导量子计算机"
+      ]
+    },
+    {
+      "id": "m2",
+      "name": "量子通信",
+      "tier": "midstream",
+      "layer": 2,
+      "aliases": [
+        "QKD",
+        "量子密钥分发"
+      ]
+    },
+    {
+      "id": "m3",
+      "name": "量子精密测量",
+      "tier": "midstream",
+      "layer": 2,
+      "aliases": [
+        "量子传感",
+        "原子钟"
+      ]
+    },
+    {
+      "id": "d1",
+      "name": "科研",
+      "tier": "downstream",
+      "layer": 3,
+      "aliases": [
+        "高校",
+        "国家实验室"
+      ]
+    },
+    {
+      "id": "d2",
+      "name": "金融",
+      "tier": "downstream",
+      "layer": 3,
+      "aliases": [
+        "量子加密通信"
+      ]
+    },
+    {
+      "id": "d3",
+      "name": "国防",
+      "tier": "downstream",
+      "layer": 3,
+      "aliases": [
+        "量子雷达"
+      ]
+    }
+  ],
+  "edges": [
+    {
+      "from": "u1",
+      "to": "m1",
+      "relation": "芯片→计算机"
+    },
+    {
+      "from": "u2",
+      "to": "m1",
+      "relation": "测控→计算机"
+    },
+    {
+      "from": "u3",
+      "to": "m1",
+      "relation": "制冷→计算机"
+    },
+    {
+      "from": "m1",
+      "to": "d1",
+      "relation": "量子计算机→科研"
+    },
+    {
+      "from": "m2",
+      "to": "d2",
+      "relation": "量子通信→金融"
+    },
+    {
+      "from": "m3",
+      "to": "d3",
+      "relation": "精密测量→国防"
+    }
+  ],
+  "companies": {
+    "m1": [
+      "IBM",
+      "Google",
+      "国盾量子",
+      "本源量子",
+      "图灵量子"
+    ],
+    "m2": [
+      "国盾量子",
+      "问天量子",
+      "科大国盾"
+    ]
+  }
+}

@@ -1,0 +1,172 @@
+{
+  "name": "大模型 / LLM 产业链",
+  "version": "v1.0",
+  "nodes": [
+    {
+      "id": "u1",
+      "name": "算力",
+      "tier": "upstream",
+      "layer": 1,
+      "aliases": [
+        "GPU 算力",
+        "H100",
+        "A100"
+      ]
+    },
+    {
+      "id": "u2",
+      "name": "训练数据",
+      "tier": "upstream",
+      "layer": 1,
+      "aliases": [
+        "数据标注",
+        "数据清洗"
+      ]
+    },
+    {
+      "id": "u3",
+      "name": "预训练框架",
+      "tier": "upstream",
+      "layer": 1,
+      "aliases": [
+        "PyTorch",
+        "TensorFlow",
+        "DeepSpeed"
+      ]
+    },
+    {
+      "id": "m1",
+      "name": "基础大模型",
+      "tier": "midstream",
+      "layer": 2,
+      "aliases": [
+        "Foundation Model",
+        "GPT",
+        "Claude",
+        "Qwen",
+        "DeepSeek"
+      ]
+    },
+    {
+      "id": "m2",
+      "name": "行业大模型",
+      "tier": "midstream",
+      "layer": 2,
+      "aliases": [
+        "垂直模型",
+        "金融大模型",
+        "医疗大模型"
+      ]
+    },
+    {
+      "id": "m3",
+      "name": "Agent / Copilot",
+      "tier": "midstream",
+      "layer": 2,
+      "aliases": [
+        "AI 助手",
+        "智能体"
+      ]
+    },
+    {
+      "id": "d1",
+      "name": "ToB 行业应用",
+      "tier": "downstream",
+      "layer": 3,
+      "aliases": [
+        "金融",
+        "医疗",
+        "教育"
+      ]
+    },
+    {
+      "id": "d2",
+      "name": "ToC 消费",
+      "tier": "downstream",
+      "layer": 3,
+      "aliases": [
+        "ChatGPT",
+        "文心一言"
+      ]
+    },
+    {
+      "id": "d3",
+      "name": "开发者生态",
+      "tier": "downstream",
+      "layer": 3,
+      "aliases": [
+        "API",
+        "Hugging Face"
+      ]
+    }
+  ],
+  "edges": [
+    {
+      "from": "u1",
+      "to": "m1",
+      "relation": "算力→基础模型"
+    },
+    {
+      "from": "u2",
+      "to": "m1",
+      "relation": "数据→基础模型"
+    },
+    {
+      "from": "u3",
+      "to": "m1",
+      "relation": "框架→基础模型"
+    },
+    {
+      "from": "m1",
+      "to": "m2",
+      "relation": "基础→行业"
+    },
+    {
+      "from": "m1",
+      "to": "m3",
+      "relation": "基础→Agent"
+    },
+    {
+      "from": "m2",
+      "to": "d1",
+      "relation": "行业模型→ToB"
+    },
+    {
+      "from": "m3",
+      "to": "d2",
+      "relation": "Agent→ToC"
+    },
+    {
+      "from": "m1",
+      "to": "d3",
+      "relation": "基础模型→开发者"
+    }
+  ],
+  "companies": {
+    "u1": [
+      "英伟达",
+      "AMD",
+      "华为昇腾",
+      "寒武纪"
+    ],
+    "m1": [
+      "OpenAI",
+      "Anthropic",
+      "Qwen",
+      "DeepSeek",
+      "智谱",
+      "百度文心"
+    ],
+    "m2": [
+      "BloombergGPT",
+      "Bloomberg",
+      "彭博"
+    ],
+    "m3": [
+      "OpenAI Operator",
+      "Anthropic Claude",
+      "Manus",
+      "Coze"
+    ]
+  }
+}

@@ -1,0 +1,167 @@
+{
+  "name": "金融科技产业链",
+  "version": "v1.0",
+  "nodes": [
+    {
+      "id": "u1",
+      "name": "云计算",
+      "tier": "upstream",
+      "layer": 1,
+      "aliases": [
+        "云基础设施"
+      ]
+    },
+    {
+      "id": "u2",
+      "name": "AI / 大模型",
+      "tier": "upstream",
+      "layer": 1,
+      "aliases": [
+        "机器学习"
+      ]
+    },
+    {
+      "id": "u3",
+      "name": "区块链",
+      "tier": "upstream",
+      "layer": 1,
+      "aliases": [
+        "分布式账本"
+      ]
+    },
+    {
+      "id": "m1",
+      "name": "支付",
+      "tier": "midstream",
+      "layer": 2,
+      "aliases": [
+        "移动支付",
+        "数字支付"
+      ]
+    },
+    {
+      "id": "m2",
+      "name": "信贷科技",
+      "tier": "midstream",
+      "layer": 2,
+      "aliases": [
+        "消费金融",
+        "助贷"
+      ]
+    },
+    {
+      "id": "m3",
+      "name": "财富管理",
+      "tier": "midstream",
+      "layer": 2,
+      "aliases": [
+        "智能投顾",
+        "Robo-advisor"
+      ]
+    },
+    {
+      "id": "m4",
+      "name": "保险科技",
+      "tier": "midstream",
+      "layer": 2,
+      "aliases": [
+        "InsurTech"
+      ]
+    },
+    {
+      "id": "d1",
+      "name": "C 端用户",
+      "tier": "downstream",
+      "layer": 3,
+      "aliases": [
+        "个人消费者"
+      ]
+    },
+    {
+      "id": "d2",
+      "name": "B 端企业",
+      "tier": "downstream",
+      "layer": 3,
+      "aliases": [
+        "中小企业"
+      ]
+    },
+    {
+      "id": "d3",
+      "name": "金融机构",
+      "tier": "downstream",
+      "layer": 3,
+      "aliases": [
+        "银行",
+        "保险",
+        "证券"
+      ]
+    }
+  ],
+  "edges": [
+    {
+      "from": "u1",
+      "to": "m1",
+      "relation": "云→支付"
+    },
+    {
+      "from": "u2",
+      "to": "m2",
+      "relation": "AI→信贷"
+    },
+    {
+      "from": "u2",
+      "to": "m3",
+      "relation": "AI→财富"
+    },
+    {
+      "from": "u3",
+      "to": "m1",
+      "relation": "区块链→支付"
+    },
+    {
+      "from": "m1",
+      "to": "d1",
+      "relation": "支付→C 端"
+    },
+    {
+      "from": "m2",
+      "to": "d2",
+      "relation": "信贷→企业"
+    },
+    {
+      "from": "m3",
+      "to": "d1",
+      "relation": "财富→C 端"
+    },
+    {
+      "from": "m4",
+      "to": "d3",
+      "relation": "保险→机构"
+    }
+  ],
+  "companies": {
+    "m1": [
+      "支付宝",
+      "微信支付",
+      "PayPal",
+      "Stripe"
+    ],
+    "m2": [
+      "蚂蚁集团",
+      "京东数科",
+      "度小满",
+      "信也科技"
+    ],
+    "m3": [
+      "蚂蚁财富",
+      "东方财富",
+      "雪球"
+    ],
+    "m4": [
+      "水滴公司",
+      "众安保险",
+      "南燕保险"
+    ]
+  }
+}

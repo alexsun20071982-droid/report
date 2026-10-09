@@ -1,0 +1,165 @@
+{
+  "name": "物流产业链",
+  "version": "v1.0",
+  "nodes": [
+    {
+      "id": "u1",
+      "name": "运输工具",
+      "tier": "upstream",
+      "layer": 1,
+      "aliases": [
+        "卡车",
+        "船舶",
+        "飞机"
+      ]
+    },
+    {
+      "id": "u2",
+      "name": "能源",
+      "tier": "upstream",
+      "layer": 1,
+      "aliases": [
+        "燃油",
+        "电力",
+        "LNG"
+      ]
+    },
+    {
+      "id": "u3",
+      "name": "仓储",
+      "tier": "upstream",
+      "layer": 1,
+      "aliases": [
+        "仓库",
+        "园区"
+      ]
+    },
+    {
+      "id": "m1",
+      "name": "快递",
+      "tier": "midstream",
+      "layer": 2,
+      "aliases": [
+        "电商快递"
+      ]
+    },
+    {
+      "id": "m2",
+      "name": "快运 / 零担",
+      "tier": "midstream",
+      "layer": 2,
+      "aliases": [
+        "零担运输"
+      ]
+    },
+    {
+      "id": "m3",
+      "name": "整车运输",
+      "tier": "midstream",
+      "layer": 2,
+      "aliases": [
+        "大票零担"
+      ]
+    },
+    {
+      "id": "m4",
+      "name": "即时配送",
+      "tier": "midstream",
+      "layer": 2,
+      "aliases": [
+        "外卖",
+        "同城配送"
+      ]
+    },
+    {
+      "id": "d1",
+      "name": "电商",
+      "tier": "downstream",
+      "layer": 3,
+      "aliases": [
+        "B2C 电商"
+      ]
+    },
+    {
+      "id": "d2",
+      "name": "制造业",
+      "tier": "downstream",
+      "layer": 3,
+      "aliases": [
+        "供应链物流"
+      ]
+    },
+    {
+      "id": "d3",
+      "name": "消费者",
+      "tier": "downstream",
+      "layer": 3,
+      "aliases": [
+        "C 端"
+      ]
+    }
+  ],
+  "edges": [
+    {
+      "from": "u1",
+      "to": "m1",
+      "relation": "工具→快递"
+    },
+    {
+      "from": "u1",
+      "to": "m2",
+      "relation": "工具→快运"
+    },
+    {
+      "from": "u1",
+      "to": "m3",
+      "relation": "工具→整车"
+    },
+    {
+      "from": "u2",
+      "to": "m1",
+      "relation": "能源→快递"
+    },
+    {
+      "from": "u3",
+      "to": "m1",
+      "relation": "仓储→快递"
+    },
+    {
+      "from": "m1",
+      "to": "d1",
+      "relation": "快递→电商"
+    },
+    {
+      "from": "m2",
+      "to": "d2",
+      "relation": "快运→制造"
+    },
+    {
+      "from": "m4",
+      "to": "d3",
+      "relation": "即时→消费者"
+    }
+  ],
+  "companies": {
+    "m1": [
+      "顺丰",
+      "京东物流",
+      "中通",
+      "圆通",
+      "申通",
+      "韵达",
+      "极兔"
+    ],
+    "m2": [
+      "德邦",
+      "安能",
+      "百世快运"
+    ],
+    "m4": [
+      "美团",
+      "饿了么",
+      "达达"
+    ]
+  }
+}

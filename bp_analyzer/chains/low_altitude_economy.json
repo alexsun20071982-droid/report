@@ -1,0 +1,248 @@
+{
+  "name": "低空经济产业链",
+  "version": "v1.0",
+  "nodes": [
+    {
+      "id": "u1",
+      "name": "航空材料",
+      "tier": "upstream",
+      "layer": 1,
+      "aliases": [
+        "碳纤维",
+        "钛合金",
+        "铝合金",
+        "树脂基"
+      ]
+    },
+    {
+      "id": "u2",
+      "name": "动力系统",
+      "tier": "upstream",
+      "layer": 1,
+      "aliases": [
+        "航空发动机",
+        "电池",
+        "电机"
+      ]
+    },
+    {
+      "id": "u3",
+      "name": "飞控 / 航电",
+      "tier": "upstream",
+      "layer": 1,
+      "aliases": [
+        "导航",
+        "飞控系统",
+        "通信",
+        "北斗"
+      ]
+    },
+    {
+      "id": "u4",
+      "name": "零部件",
+      "tier": "upstream",
+      "layer": 1,
+      "aliases": [
+        "连接器",
+        "传感器",
+        "MEMS"
+      ]
+    },
+    {
+      "id": "m1",
+      "name": "无人机",
+      "tier": "midstream",
+      "layer": 2,
+      "aliases": [
+        "消费级无人机",
+        "工业级无人机"
+      ]
+    },
+    {
+      "id": "m2",
+      "name": "eVTOL",
+      "tier": "midstream",
+      "layer": 2,
+      "aliases": [
+        "电动垂直起降",
+        "飞行汽车"
+      ]
+    },
+    {
+      "id": "m3",
+      "name": "传统直升机 / 固定翼",
+      "tier": "midstream",
+      "layer": 2,
+      "aliases": [
+        "通航飞机"
+      ]
+    },
+    {
+      "id": "m4",
+      "name": "起降设施",
+      "tier": "midstream",
+      "layer": 2,
+      "aliases": [
+        "起降场",
+        "垂直起降港"
+      ]
+    },
+    {
+      "id": "m5",
+      "name": "地面系统",
+      "tier": "midstream",
+      "layer": 2,
+      "aliases": [
+        "指挥",
+        "监控",
+        "数据处理"
+      ]
+    },
+    {
+      "id": "d1",
+      "name": "物流配送",
+      "tier": "downstream",
+      "layer": 3,
+      "aliases": [
+        "无人机快递"
+      ]
+    },
+    {
+      "id": "d2",
+      "name": "巡检",
+      "tier": "downstream",
+      "layer": 3,
+      "aliases": [
+        "电力巡检",
+        "农业植保"
+      ]
+    },
+    {
+      "id": "d3",
+      "name": "应急救援",
+      "tier": "downstream",
+      "layer": 3,
+      "aliases": [
+        "医疗转运"
+      ]
+    },
+    {
+      "id": "d4",
+      "name": "城市空中交通",
+      "tier": "downstream",
+      "layer": 3,
+      "aliases": [
+        "UAM",
+        "载人飞行"
+      ]
+    },
+    {
+      "id": "d5",
+      "name": "低空文旅",
+      "tier": "downstream",
+      "layer": 3,
+      "aliases": [
+        "航拍",
+        "飞行体验"
+      ]
+    }
+  ],
+  "edges": [
+    {
+      "from": "u1",
+      "to": "m1",
+      "relation": "材料→无人机"
+    },
+    {
+      "from": "u1",
+      "to": "m2",
+      "relation": "材料→eVTOL"
+    },
+    {
+      "from": "u2",
+      "to": "m1",
+      "relation": "动力→无人机"
+    },
+    {
+      "from": "u2",
+      "to": "m2",
+      "relation": "动力→eVTOL"
+    },
+    {
+      "from": "u3",
+      "to": "m1",
+      "relation": "飞控→无人机"
+    },
+    {
+      "from": "u3",
+      "to": "m2",
+      "relation": "飞控→eVTOL"
+    },
+    {
+      "from": "u4",
+      "to": "m1",
+      "relation": "零部件→无人机"
+    },
+    {
+      "from": "m1",
+      "to": "d1",
+      "relation": "无人机→物流"
+    },
+    {
+      "from": "m1",
+      "to": "d2",
+      "relation": "无人机→巡检"
+    },
+    {
+      "from": "m1",
+      "to": "d3",
+      "relation": "无人机→应急"
+    },
+    {
+      "from": "m2",
+      "to": "d4",
+      "relation": "eVTOL→UAM"
+    },
+    {
+      "from": "m2",
+      "to": "d5",
+      "relation": "eVTOL→文旅"
+    },
+    {
+      "from": "m4",
+      "to": "d1",
+      "relation": "起降→物流"
+    },
+    {
+      "from": "m5",
+      "to": "d4",
+      "relation": "地面系统→UAM"
+    }
+  ],
+  "companies": {
+    "m1": [
+      "大疆",
+      "纵横股份",
+      "航天彩虹",
+      "中无人机"
+    ],
+    "m2": [
+      "亿航智能",
+      "峰飞航空",
+      "小鹏汇天",
+      "沃飞长空",
+      "时的科技"
+    ],
+    "u3": [
+      "华为",
+      "北斗星通",
+      "大疆",
+      "瑞芬科技"
+    ],
+    "u2": [
+      "德赛电池",
+      "大疆动力",
+      "航瑞动力"
+    ]
+  }
+}

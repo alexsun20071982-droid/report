@@ -1,0 +1,112 @@
+{
+  "name": "风电产业链",
+  "version": "v1.0",
+  "nodes": [
+    {
+      "id": "u1",
+      "name": "叶片",
+      "tier": "upstream",
+      "layer": 1,
+      "aliases": [
+        "风机叶片",
+        "复合材料叶片"
+      ]
+    },
+    {
+      "id": "u2",
+      "name": "齿轮箱",
+      "tier": "upstream",
+      "layer": 1,
+      "aliases": [
+        "传动系统"
+      ]
+    },
+    {
+      "id": "u3",
+      "name": "发电机",
+      "tier": "upstream",
+      "layer": 1,
+      "aliases": [
+        "永磁直驱"
+      ]
+    },
+    {
+      "id": "m1",
+      "name": "整机厂",
+      "tier": "midstream",
+      "layer": 2,
+      "aliases": [
+        "风机制造商"
+      ]
+    },
+    {
+      "id": "m2",
+      "name": "塔筒",
+      "tier": "midstream",
+      "layer": 2,
+      "aliases": [
+        "风机塔架"
+      ]
+    },
+    {
+      "id": "d1",
+      "name": "陆上风电",
+      "tier": "downstream",
+      "layer": 3,
+      "aliases": [
+        "陆风"
+      ]
+    },
+    {
+      "id": "d2",
+      "name": "海上风电",
+      "tier": "downstream",
+      "layer": 3,
+      "aliases": [
+        "海风",
+        "漂浮式风电"
+      ]
+    }
+  ],
+  "edges": [
+    {
+      "from": "u1",
+      "to": "m1",
+      "relation": "叶片→整机"
+    },
+    {
+      "from": "u2",
+      "to": "m1",
+      "relation": "齿轮箱→整机"
+    },
+    {
+      "from": "u3",
+      "to": "m1",
+      "relation": "发电机→整机"
+    },
+    {
+      "from": "m2",
+      "to": "m1",
+      "relation": "塔筒→整机"
+    },
+    {
+      "from": "m1",
+      "to": "d1",
+      "relation": "整机→陆风"
+    },
+    {
+      "from": "m1",
+      "to": "d2",
+      "relation": "整机→海风"
+    }
+  ],
+  "companies": {
+    "m1": [
+      "金风科技",
+      "远景能源",
+      "明阳智能",
+      "电气风电",
+      "三一重能"
+    ]
+  }
+}

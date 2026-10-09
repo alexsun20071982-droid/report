@@ -1,0 +1,162 @@
+{
+  "name": "供应链金融产业链",
+  "version": "v1.0",
+  "nodes": [
+    {
+      "id": "u1",
+      "name": "核心企业",
+      "tier": "upstream",
+      "layer": 1,
+      "aliases": [
+        "链主",
+        "龙头企业"
+      ]
+    },
+    {
+      "id": "u2",
+      "name": "上游供应商",
+      "tier": "upstream",
+      "layer": 1,
+      "aliases": [
+        "中小企业",
+        "应收账款"
+      ]
+    },
+    {
+      "id": "u3",
+      "name": "下游经销商",
+      "tier": "upstream",
+      "layer": 1,
+      "aliases": [
+        "渠道商"
+      ]
+    },
+    {
+      "id": "m1",
+      "name": "保理",
+      "tier": "midstream",
+      "layer": 2,
+      "aliases": [
+        "应收账款融资"
+      ]
+    },
+    {
+      "id": "m2",
+      "name": "动产质押",
+      "tier": "midstream",
+      "layer": 2,
+      "aliases": [
+        "存货质押"
+      ]
+    },
+    {
+      "id": "m3",
+      "name": "票据贴现",
+      "tier": "midstream",
+      "layer": 2,
+      "aliases": [
+        "商业票据",
+        "银行承兑"
+      ]
+    },
+    {
+      "id": "m4",
+      "name": "金融科技平台",
+      "tier": "midstream",
+      "layer": 2,
+      "aliases": [
+        "蚂蚁链",
+        "腾讯金融云"
+      ]
+    },
+    {
+      "id": "d1",
+      "name": "商业银行",
+      "tier": "downstream",
+      "layer": 3,
+      "aliases": [
+        "国有大行",
+        "股份行"
+      ]
+    },
+    {
+      "id": "d2",
+      "name": "保理公司",
+      "tier": "downstream",
+      "layer": 3,
+      "aliases": [
+        "商业保理"
+      ]
+    },
+    {
+      "id": "d3",
+      "name": "小贷公司",
+      "tier": "downstream",
+      "layer": 3,
+      "aliases": [
+        "小额贷款"
+      ]
+    }
+  ],
+  "edges": [
+    {
+      "from": "u1",
+      "to": "u2",
+      "relation": "核心→供应商"
+    },
+    {
+      "from": "u1",
+      "to": "u3",
+      "relation": "核心→经销商"
+    },
+    {
+      "from": "u2",
+      "to": "m1",
+      "relation": "应收→保理"
+    },
+    {
+      "from": "u2",
+      "to": "m2",
+      "relation": "存货→质押"
+    },
+    {
+      "from": "u3",
+      "to": "m3",
+      "relation": "票据→贴现"
+    },
+    {
+      "from": "m4",
+      "to": "m1",
+      "relation": "金融科技→保理"
+    },
+    {
+      "from": "m1",
+      "to": "d1",
+      "relation": "保理→银行"
+    },
+    {
+      "from": "m1",
+      "to": "d2",
+      "relation": "保理→保理公司"
+    },
+    {
+      "from": "m2",
+      "to": "d3",
+      "relation": "质押→小贷"
+    }
+  ],
+  "companies": {
+    "m4": [
+      "蚂蚁集团",
+      "腾讯金融科技",
+      "京东科技",
+      "联易融"
+    ],
+    "d1": [
+      "工商银行",
+      "建设银行",
+      "平安银行",
+      "中信银行"
+    ]
+  }
+}

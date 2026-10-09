@@ -1,0 +1,152 @@
+{
+  "name": "跨境物流产业链",
+  "version": "v1.0",
+  "nodes": [
+    {
+      "id": "u1",
+      "name": "海运承运商",
+      "tier": "upstream",
+      "layer": 1,
+      "aliases": [
+        "船公司",
+        "集装箱船"
+      ]
+    },
+    {
+      "id": "u2",
+      "name": "空运承运商",
+      "tier": "upstream",
+      "layer": 1,
+      "aliases": [
+        "航空公司",
+        "国际货代"
+      ]
+    },
+    {
+      "id": "u3",
+      "name": "仓储设施",
+      "tier": "upstream",
+      "layer": 1,
+      "aliases": [
+        "港口",
+        "机场货运",
+        "物流园"
+      ]
+    },
+    {
+      "id": "m1",
+      "name": "国际货代",
+      "tier": "midstream",
+      "layer": 2,
+      "aliases": [
+        "货代",
+        "Freight Forwarder"
+      ]
+    },
+    {
+      "id": "m2",
+      "name": "清关服务",
+      "tier": "midstream",
+      "layer": 2,
+      "aliases": [
+        "报关行",
+        "清关代理"
+      ]
+    },
+    {
+      "id": "m3",
+      "name": "海外仓配",
+      "tier": "midstream",
+      "layer": 2,
+      "aliases": [
+        "海外仓",
+        "末端配送"
+      ]
+    },
+    {
+      "id": "d1",
+      "name": "跨境电商平台",
+      "tier": "downstream",
+      "layer": 3,
+      "aliases": [
+        "亚马逊",
+        "Temu"
+      ]
+    },
+    {
+      "id": "d2",
+      "name": "跨境卖家",
+      "tier": "downstream",
+      "layer": 3,
+      "aliases": [
+        "品牌出海",
+        "外贸企业"
+      ]
+    },
+    {
+      "id": "d3",
+      "name": "海外消费者",
+      "tier": "downstream",
+      "layer": 3,
+      "aliases": [
+        "终端用户"
+      ]
+    }
+  ],
+  "edges": [
+    {
+      "from": "u1",
+      "to": "m1",
+      "relation": "船公司→货代"
+    },
+    {
+      "from": "u2",
+      "to": "m1",
+      "relation": "航司→货代"
+    },
+    {
+      "from": "u3",
+      "to": "m3",
+      "relation": "仓储→海外仓"
+    },
+    {
+      "from": "m1",
+      "to": "m2",
+      "relation": "货代→清关"
+    },
+    {
+      "from": "m1",
+      "to": "m3",
+      "relation": "货代→海外仓"
+    },
+    {
+      "from": "m2",
+      "to": "d1",
+      "relation": "清关→平台"
+    },
+    {
+      "from": "m3",
+      "to": "d3",
+      "relation": "海外仓→消费者"
+    },
+    {
+      "from": "d1",
+      "to": "d2",
+      "relation": "平台→卖家"
+    }
+  ],
+  "companies": {
+    "m1": [
+      "中远海运",
+      "嘉里物流",
+      "嘉宏货运",
+      "CEVA Logistics"
+    ],
+    "m3": [
+      "递四方",
+      "万邑通",
+      "谷仓海外仓",
+      "纵腾集团"
+    ]
+  }
+}

@@ -1,0 +1,151 @@
+{
+  "name": "智慧物流产业链",
+  "version": "v1.0",
+  "nodes": [
+    {
+      "id": "u1",
+      "name": "物联网设备",
+      "tier": "upstream",
+      "layer": 1,
+      "aliases": [
+        "RFID",
+        "GPS",
+        "传感器"
+      ]
+    },
+    {
+      "id": "u2",
+      "name": "WMS / TMS",
+      "tier": "upstream",
+      "layer": 1,
+      "aliases": [
+        "仓储管理",
+        "运输管理"
+      ]
+    },
+    {
+      "id": "u3",
+      "name": "自动化设备",
+      "tier": "upstream",
+      "layer": 1,
+      "aliases": [
+        "AGV",
+        "分拣线",
+        "立体仓库"
+      ]
+    },
+    {
+      "id": "m1",
+      "name": "智能仓储",
+      "tier": "midstream",
+      "layer": 2,
+      "aliases": [
+        "智能仓"
+      ]
+    },
+    {
+      "id": "m2",
+      "name": "智能运输",
+      "tier": "midstream",
+      "layer": 2,
+      "aliases": [
+        "车货匹配",
+        "无人驾驶"
+      ]
+    },
+    {
+      "id": "m3",
+      "name": "即时配送",
+      "tier": "midstream",
+      "layer": 2,
+      "aliases": [
+        "外卖",
+        "同城",
+        "跑腿"
+      ]
+    },
+    {
+      "id": "d1",
+      "name": "电商",
+      "tier": "downstream",
+      "layer": 3,
+      "aliases": [
+        "B2C 电商"
+      ]
+    },
+    {
+      "id": "d2",
+      "name": "制造业",
+      "tier": "downstream",
+      "layer": 3,
+      "aliases": [
+        "供应链"
+      ]
+    },
+    {
+      "id": "d3",
+      "name": "消费者",
+      "tier": "downstream",
+      "layer": 3,
+      "aliases": [
+        "C 端"
+      ]
+    }
+  ],
+  "edges": [
+    {
+      "from": "u1",
+      "to": "m1",
+      "relation": "IoT→仓储"
+    },
+    {
+      "from": "u2",
+      "to": "m1",
+      "relation": "WMS→仓储"
+    },
+    {
+      "from": "u2",
+      "to": "m2",
+      "relation": "TMS→运输"
+    },
+    {
+      "from": "u3",
+      "to": "m1",
+      "relation": "自动化→仓储"
+    },
+    {
+      "from": "m1",
+      "to": "d1",
+      "relation": "仓储→电商"
+    },
+    {
+      "from": "m2",
+      "to": "d2",
+      "relation": "运输→制造"
+    },
+    {
+      "from": "m3",
+      "to": "d3",
+      "relation": "即时→消费者"
+    }
+  ],
+  "companies": {
+    "m1": [
+      "京东物流",
+      "菜鸟",
+      "苏宁物流",
+      "顺丰"
+    ],
+    "m2": [
+      "满帮",
+      "福佑卡车",
+      "中储智运"
+    ],
+    "m3": [
+      "美团配送",
+      "饿了么",
+      "达达",
+      "闪送"
+    ]
+  }
+}

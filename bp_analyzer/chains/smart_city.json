@@ -1,0 +1,178 @@
+{
+  "name": "智慧城市产业链",
+  "version": "v1.0",
+  "nodes": [
+    {
+      "id": "u1",
+      "name": "物联网",
+      "tier": "upstream",
+      "layer": 1,
+      "aliases": [
+        "IoT",
+        "传感器"
+      ]
+    },
+    {
+      "id": "u2",
+      "name": "通信网络",
+      "tier": "upstream",
+      "layer": 1,
+      "aliases": [
+        "5G",
+        "NB-IoT",
+        "光纤"
+      ]
+    },
+    {
+      "id": "u3",
+      "name": "云计算 / 边缘计算",
+      "tier": "upstream",
+      "layer": 1
+    },
+    {
+      "id": "m1",
+      "name": "智慧交通",
+      "tier": "midstream",
+      "layer": 2,
+      "aliases": [
+        "智能信号灯",
+        "车路协同"
+      ]
+    },
+    {
+      "id": "m2",
+      "name": "智慧政务",
+      "tier": "midstream",
+      "layer": 2,
+      "aliases": [
+        "一网通办"
+      ]
+    },
+    {
+      "id": "m3",
+      "name": "智慧能源",
+      "tier": "midstream",
+      "layer": 2,
+      "aliases": [
+        "智能电网",
+        "能耗监测"
+      ]
+    },
+    {
+      "id": "m4",
+      "name": "智慧安防",
+      "tier": "midstream",
+      "layer": 2,
+      "aliases": [
+        "视频监控",
+        "AI 摄像头"
+      ]
+    },
+    {
+      "id": "m5",
+      "name": "智慧社区",
+      "tier": "midstream",
+      "layer": 2,
+      "aliases": [
+        "智慧物业",
+        "智慧停车"
+      ]
+    },
+    {
+      "id": "d1",
+      "name": "政府",
+      "tier": "downstream",
+      "layer": 3,
+      "aliases": [
+        "城市管理"
+      ]
+    },
+    {
+      "id": "d2",
+      "name": "园区",
+      "tier": "downstream",
+      "layer": 3,
+      "aliases": [
+        "智慧园区"
+      ]
+    },
+    {
+      "id": "d3",
+      "name": "居民",
+      "tier": "downstream",
+      "layer": 3,
+      "aliases": [
+        "市民"
+      ]
+    }
+  ],
+  "edges": [
+    {
+      "from": "u1",
+      "to": "m1",
+      "relation": "IoT→交通"
+    },
+    {
+      "from": "u1",
+      "to": "m4",
+      "relation": "IoT→安防"
+    },
+    {
+      "from": "u2",
+      "to": "m1",
+      "relation": "5G→交通"
+    },
+    {
+      "from": "u3",
+      "to": "m2",
+      "relation": "云→政务"
+    },
+    {
+      "from": "m1",
+      "to": "d1",
+      "relation": "交通→政府"
+    },
+    {
+      "from": "m2",
+      "to": "d1",
+      "relation": "政务→政府"
+    },
+    {
+      "from": "m4",
+      "to": "d1",
+      "relation": "安防→政府"
+    },
+    {
+      "from": "m5",
+      "to": "d2",
+      "relation": "社区→园区"
+    },
+    {
+      "from": "m4",
+      "to": "d3",
+      "relation": "安防→居民"
+    }
+  ],
+  "companies": {
+    "m1": [
+      "海信网络科技",
+      "千方科技",
+      "易华录"
+    ],
+    "m2": [
+      "太极股份",
+      "神州数码",
+      "浪潮软件"
+    ],
+    "m4": [
+      "海康威视",
+      "大华股份",
+      "宇视科技"
+    ],
+    "m5": [
+      "万科物业",
+      "龙湖千丁",
+      "碧桂园服务"
+    ]
+  }
+}

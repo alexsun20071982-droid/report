@@ -1,0 +1,171 @@
+{
+  "name": "宠物经济产业链",
+  "version": "v1.0",
+  "nodes": [
+    {
+      "id": "u1",
+      "name": "宠物食品原料",
+      "tier": "upstream",
+      "layer": 1,
+      "aliases": [
+        "肉类",
+        "谷物",
+        "添加剂"
+      ]
+    },
+    {
+      "id": "u2",
+      "name": "宠物药品原料",
+      "tier": "upstream",
+      "layer": 1,
+      "aliases": [
+        "疫苗",
+        "驱虫药"
+      ]
+    },
+    {
+      "id": "m1",
+      "name": "宠物食品",
+      "tier": "midstream",
+      "layer": 2,
+      "aliases": [
+        "主粮",
+        "零食"
+      ]
+    },
+    {
+      "id": "m2",
+      "name": "宠物用品",
+      "tier": "midstream",
+      "layer": 2,
+      "aliases": [
+        "玩具",
+        "服装",
+        "窝"
+      ]
+    },
+    {
+      "id": "m3",
+      "name": "宠物医疗",
+      "tier": "midstream",
+      "layer": 2,
+      "aliases": [
+        "疫苗",
+        "诊疗",
+        "手术"
+      ]
+    },
+    {
+      "id": "m4",
+      "name": "宠物服务",
+      "tier": "midstream",
+      "layer": 2,
+      "aliases": [
+        "美容",
+        "寄养",
+        "训练"
+      ]
+    },
+    {
+      "id": "d1",
+      "name": "宠物店",
+      "tier": "downstream",
+      "layer": 3,
+      "aliases": [
+        "线下零售"
+      ]
+    },
+    {
+      "id": "d2",
+      "name": "电商",
+      "tier": "downstream",
+      "layer": 3,
+      "aliases": [
+        "天猫",
+        "京东"
+      ]
+    },
+    {
+      "id": "d3",
+      "name": "宠物医院",
+      "tier": "downstream",
+      "layer": 3,
+      "aliases": [
+        "瑞鹏",
+        "新瑞鹏"
+      ]
+    },
+    {
+      "id": "d4",
+      "name": "养宠人群",
+      "tier": "downstream",
+      "layer": 3,
+      "aliases": [
+        "Z 世代",
+        "单身经济"
+      ]
+    }
+  ],
+  "edges": [
+    {
+      "from": "u1",
+      "to": "m1",
+      "relation": "食品原料→食品"
+    },
+    {
+      "from": "u2",
+      "to": "m3",
+      "relation": "药品原料→医疗"
+    },
+    {
+      "from": "m1",
+      "to": "d1",
+      "relation": "食品→宠物店"
+    },
+    {
+      "from": "m1",
+      "to": "d2",
+      "relation": "食品→电商"
+    },
+    {
+      "from": "m2",
+      "to": "d1",
+      "relation": "用品→宠物店"
+    },
+    {
+      "from": "m2",
+      "to": "d2",
+      "relation": "用品→电商"
+    },
+    {
+      "from": "m3",
+      "to": "d3",
+      "relation": "医疗→医院"
+    },
+    {
+      "from": "m4",
+      "to": "d4",
+      "relation": "服务→养宠人群"
+    }
+  ],
+  "companies": {
+    "m1": [
+      "玛氏",
+      "皇家",
+      "中宠股份",
+      "佩蒂股份",
+      "乖宝宠物"
+    ],
+    "m3": [
+      "硕腾",
+      "勃林格",
+      "瑞鹏",
+      "新瑞鹏",
+      "高瓴系"
+    ],
+    "m4": [
+      "宠物美容连锁",
+      "宠物寄养"
+    ]
+  }
+}

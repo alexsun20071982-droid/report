@@ -1,0 +1,169 @@
+{
+  "name": "增材制造（3D 打印）产业链",
+  "version": "v1.0",
+  "nodes": [
+    {
+      "id": "u1",
+      "name": "金属粉末",
+      "tier": "upstream",
+      "layer": 1,
+      "aliases": [
+        "钛合金粉",
+        "高温合金粉"
+      ]
+    },
+    {
+      "id": "u2",
+      "name": "光敏树脂",
+      "tier": "upstream",
+      "layer": 1,
+      "aliases": [
+        "UV 树脂"
+      ]
+    },
+    {
+      "id": "u3",
+      "name": "PLA / ABS 线材",
+      "tier": "upstream",
+      "layer": 1,
+      "aliases": [
+        "FDM 线材"
+      ]
+    },
+    {
+      "id": "m1",
+      "name": "金属 3D 打印",
+      "tier": "midstream",
+      "layer": 2,
+      "aliases": [
+        "SLM",
+        "EBM",
+        "DMLS"
+      ]
+    },
+    {
+      "id": "m2",
+      "name": "塑料 3D 打印",
+      "tier": "midstream",
+      "layer": 2,
+      "aliases": [
+        "FDM",
+        "SLA"
+      ]
+    },
+    {
+      "id": "m3",
+      "name": "陶瓷 3D 打印",
+      "tier": "midstream",
+      "layer": 2,
+      "aliases": [
+        "生物陶瓷"
+      ]
+    },
+    {
+      "id": "m4",
+      "name": "打印服务",
+      "tier": "midstream",
+      "layer": 2,
+      "aliases": [
+        "代打印",
+        "云工厂"
+      ]
+    },
+    {
+      "id": "d1",
+      "name": "航空航天",
+      "tier": "downstream",
+      "layer": 3,
+      "aliases": [
+        "发动机",
+        "结构件"
+      ]
+    },
+    {
+      "id": "d2",
+      "name": "医疗",
+      "tier": "downstream",
+      "layer": 3,
+      "aliases": [
+        "齿科",
+        "骨科",
+        "个性化植入"
+      ]
+    },
+    {
+      "id": "d3",
+      "name": "汽车",
+      "tier": "downstream",
+      "layer": 3,
+      "aliases": [
+        "原型开发",
+        "小批量"
+      ]
+    },
+    {
+      "id": "d4",
+      "name": "消费品",
+      "tier": "downstream",
+      "layer": 3,
+      "aliases": [
+        "定制产品"
+      ]
+    }
+  ],
+  "edges": [
+    {
+      "from": "u1",
+      "to": "m1",
+      "relation": "金属粉→金属打印"
+    },
+    {
+      "from": "u2",
+      "to": "m2",
+      "relation": "树脂→塑料打印"
+    },
+    {
+      "from": "u3",
+      "to": "m2",
+      "relation": "线材→塑料打印"
+    },
+    {
+      "from": "m1",
+      "to": "d1",
+      "relation": "金属打印→航天"
+    },
+    {
+      "from": "m2",
+      "to": "d2",
+      "relation": "塑料打印→医疗"
+    },
+    {
+      "from": "m1",
+      "to": "m4",
+      "relation": "金属打印→服务"
+    },
+    {
+      "from": "m2",
+      "to": "d3",
+      "relation": "塑料打印→汽车"
+    },
+    {
+      "from": "m2",
+      "to": "d4",
+      "relation": "塑料打印→消费品"
+    }
+  ],
+  "companies": {
+    "m1": [
+      "铂力特",
+      "华曙高科",
+      "先临三维",
+      "SLM Solutions"
+    ],
+    "m2": [
+      "创想三维",
+      "纵维立方",
+      "Formlabs"
+    ]
+  }
+}

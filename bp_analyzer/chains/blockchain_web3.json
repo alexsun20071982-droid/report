@@ -1,0 +1,159 @@
+{
+  "name": "区块链 / Web3 产业链",
+  "version": "v1.0",
+  "nodes": [
+    {
+      "id": "u1",
+      "name": "公链 / 联盟链",
+      "tier": "upstream",
+      "layer": 1,
+      "aliases": [
+        "ETH",
+        "Solana",
+        "长安链"
+      ]
+    },
+    {
+      "id": "u2",
+      "name": "共识算法",
+      "tier": "upstream",
+      "layer": 1,
+      "aliases": [
+        "PoW",
+        "PoS"
+      ]
+    },
+    {
+      "id": "u3",
+      "name": "密码学",
+      "tier": "upstream",
+      "layer": 1,
+      "aliases": [
+        "零知识证明",
+        "MPC"
+      ]
+    },
+    {
+      "id": "m1",
+      "name": "DeFi",
+      "tier": "midstream",
+      "layer": 2,
+      "aliases": [
+        "去中心化金融",
+        "Uniswap"
+      ]
+    },
+    {
+      "id": "m2",
+      "name": "NFT / 元宇宙",
+      "tier": "midstream",
+      "layer": 2,
+      "aliases": [
+        "数字藏品"
+      ]
+    },
+    {
+      "id": "m3",
+      "name": "链上服务",
+      "tier": "midstream",
+      "layer": 2,
+      "aliases": [
+        "BaaS",
+        "链改服务"
+      ]
+    },
+    {
+      "id": "m4",
+      "name": "数字身份",
+      "tier": "midstream",
+      "layer": 2,
+      "aliases": [
+        "DID"
+      ]
+    },
+    {
+      "id": "d1",
+      "name": "金融",
+      "tier": "downstream",
+      "layer": 3,
+      "aliases": [
+        "跨境支付",
+        "贸易金融"
+      ]
+    },
+    {
+      "id": "d2",
+      "name": "供应链",
+      "tier": "downstream",
+      "layer": 3,
+      "aliases": [
+        "溯源",
+        "物流"
+      ]
+    },
+    {
+      "id": "d3",
+      "name": "政务",
+      "tier": "downstream",
+      "layer": 3,
+      "aliases": [
+        "电子证照"
+      ]
+    }
+  ],
+  "edges": [
+    {
+      "from": "u1",
+      "to": "m1",
+      "relation": "公链→DeFi"
+    },
+    {
+      "from": "u1",
+      "to": "m2",
+      "relation": "公链→NFT"
+    },
+    {
+      "from": "u3",
+      "to": "m3",
+      "relation": "密码→BaaS"
+    },
+    {
+      "from": "m1",
+      "to": "d1",
+      "relation": "DeFi→金融"
+    },
+    {
+      "from": "m3",
+      "to": "d2",
+      "relation": "链上→供应链"
+    },
+    {
+      "from": "m3",
+      "to": "d3",
+      "relation": "链上→政务"
+    },
+    {
+      "from": "m4",
+      "to": "d1",
+      "relation": "DID→金融"
+    }
+  ],
+  "companies": {
+    "u1": [
+      "Ethereum Foundation",
+      "Solana Foundation",
+      "长安链",
+      "蚂蚁链"
+    ],
+    "m1": [
+      "Uniswap",
+      "Aave",
+      "MakerDAO"
+    ],
+    "m3": [
+      "蚂蚁链",
+      "腾讯至信链",
+      "微众银行 Fisco Bcos"
+    ]
+  }
+}

@@ -1,0 +1,149 @@
+{
+  "name": "数字经济产业链",
+  "version": "v1.0",
+  "nodes": [
+    {
+      "id": "u1",
+      "name": "数字基础设施",
+      "tier": "upstream",
+      "layer": 1,
+      "aliases": [
+        "5G",
+        "IDC",
+        "算力"
+      ]
+    },
+    {
+      "id": "u2",
+      "name": "数据要素",
+      "tier": "upstream",
+      "layer": 1,
+      "aliases": [
+        "数据交易",
+        "数据资产"
+      ]
+    },
+    {
+      "id": "m1",
+      "name": "数字产业化",
+      "tier": "midstream",
+      "layer": 2,
+      "aliases": [
+        "软件",
+        "ICT",
+        "互联网"
+      ]
+    },
+    {
+      "id": "m2",
+      "name": "产业数字化",
+      "tier": "midstream",
+      "layer": 2,
+      "aliases": [
+        "工业互联网",
+        "智能制造"
+      ]
+    },
+    {
+      "id": "m3",
+      "name": "数字化治理",
+      "tier": "midstream",
+      "layer": 2,
+      "aliases": [
+        "数字政府",
+        "智慧城市"
+      ]
+    },
+    {
+      "id": "d1",
+      "name": "消费互联网",
+      "tier": "downstream",
+      "layer": 3,
+      "aliases": [
+        "电商",
+        "社交",
+        "内容"
+      ]
+    },
+    {
+      "id": "d2",
+      "name": "工业 / 制造业",
+      "tier": "downstream",
+      "layer": 3,
+      "aliases": [
+        "数字化转型"
+      ]
+    },
+    {
+      "id": "d3",
+      "name": "公共服务",
+      "tier": "downstream",
+      "layer": 3,
+      "aliases": [
+        "政务",
+        "医疗",
+        "教育"
+      ]
+    }
+  ],
+  "edges": [
+    {
+      "from": "u1",
+      "to": "m1",
+      "relation": "基建→产业化"
+    },
+    {
+      "from": "u1",
+      "to": "m2",
+      "relation": "基建→产业数字化"
+    },
+    {
+      "from": "u2",
+      "to": "m1",
+      "relation": "数据→产业化"
+    },
+    {
+      "from": "u2",
+      "to": "m2",
+      "relation": "数据→产业数字化"
+    },
+    {
+      "from": "m1",
+      "to": "d1",
+      "relation": "产业化→消费"
+    },
+    {
+      "from": "m2",
+      "to": "d2",
+      "relation": "产业数字化→工业"
+    },
+    {
+      "from": "m3",
+      "to": "d3",
+      "relation": "治理→公共服务"
+    }
+  ],
+  "companies": {
+    "u1": [
+      "中国移动",
+      "中国电信",
+      "中国联通",
+      "万国数据"
+    ],
+    "m1": [
+      "腾讯",
+      "阿里",
+      "字节跳动",
+      "华为",
+      "百度"
+    ],
+    "m2": [
+      "工业富联",
+      "树根互联",
+      "卡奥斯"
+    ],
+    "m3": [
+      "数字政府服务商"
+    ]
+  }
+}

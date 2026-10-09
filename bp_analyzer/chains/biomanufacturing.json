@@ -1,0 +1,183 @@
+{
+  "name": "生物制造产业链",
+  "version": "v1.0",
+  "nodes": [
+    {
+      "id": "u1",
+      "name": "菌种 / 底盘细胞",
+      "tier": "upstream",
+      "layer": 1,
+      "aliases": [
+        "工程菌",
+        "细胞工厂"
+      ]
+    },
+    {
+      "id": "u2",
+      "name": "原料",
+      "tier": "upstream",
+      "layer": 1,
+      "aliases": [
+        "葡萄糖",
+        "淀粉",
+        "糖蜜"
+      ]
+    },
+    {
+      "id": "u3",
+      "name": "生物反应器",
+      "tier": "upstream",
+      "layer": 1,
+      "aliases": [
+        "发酵罐"
+      ]
+    },
+    {
+      "id": "u4",
+      "name": "纯化设备",
+      "tier": "upstream",
+      "layer": 1,
+      "aliases": [
+        "层析",
+        "膜分离"
+      ]
+    },
+    {
+      "id": "m1",
+      "name": "发酵生产",
+      "tier": "midstream",
+      "layer": 2,
+      "aliases": [
+        "微生物发酵"
+      ]
+    },
+    {
+      "id": "m2",
+      "name": "生物基化学品",
+      "tier": "midstream",
+      "layer": 2,
+      "aliases": [
+        "生物基材料"
+      ]
+    },
+    {
+      "id": "m3",
+      "name": "生物医药",
+      "tier": "midstream",
+      "layer": 2,
+      "aliases": [
+        "疫苗",
+        "抗体",
+        "CGT"
+      ]
+    },
+    {
+      "id": "d1",
+      "name": "医药行业",
+      "tier": "downstream",
+      "layer": 3,
+      "aliases": [
+        "药企"
+      ]
+    },
+    {
+      "id": "d2",
+      "name": "食品 / 饲料",
+      "tier": "downstream",
+      "layer": 3,
+      "aliases": [
+        "食品工业"
+      ]
+    },
+    {
+      "id": "d3",
+      "name": "材料行业",
+      "tier": "downstream",
+      "layer": 3,
+      "aliases": [
+        "塑料",
+        "纤维"
+      ]
+    },
+    {
+      "id": "d4",
+      "name": "农业",
+      "tier": "downstream",
+      "layer": 3,
+      "aliases": [
+        "生物农药",
+        "生物肥料"
+      ]
+    }
+  ],
+  "edges": [
+    {
+      "from": "u1",
+      "to": "m1",
+      "relation": "菌种→发酵"
+    },
+    {
+      "from": "u2",
+      "to": "m1",
+      "relation": "原料→发酵"
+    },
+    {
+      "from": "u3",
+      "to": "m1",
+      "relation": "反应器→发酵"
+    },
+    {
+      "from": "m1",
+      "to": "u4",
+      "relation": "发酵→纯化"
+    },
+    {
+      "from": "m1",
+      "to": "m2",
+      "relation": "发酵→化学品"
+    },
+    {
+      "from": "m1",
+      "to": "m3",
+      "relation": "发酵→医药"
+    },
+    {
+      "from": "m2",
+      "to": "d3",
+      "relation": "化学品→材料"
+    },
+    {
+      "from": "m3",
+      "to": "d1",
+      "relation": "医药→药企"
+    },
+    {
+      "from": "m2",
+      "to": "d2",
+      "relation": "化学品→食品"
+    },
+    {
+      "from": "m1",
+      "to": "d4",
+      "relation": "发酵→农业"
+    }
+  ],
+  "companies": {
+    "u1": [
+      "蓝晶微生物",
+      "微构工坊",
+      "Ginkgo Bioworks"
+    ],
+    "m1": [
+      "凯赛生物",
+      "华恒生物",
+      "川宁生物",
+      "安琪酵母"
+    ],
+    "m3": [
+      "药明生物",
+      "百济神州",
+      "信达生物"
+    ]
+  }
+}

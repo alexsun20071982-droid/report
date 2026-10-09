@@ -1,0 +1,148 @@
+{
+  "name": "脑机接口产业链",
+  "version": "v1.0",
+  "nodes": [
+    {
+      "id": "u1",
+      "name": "电极",
+      "tier": "upstream",
+      "layer": 1,
+      "aliases": [
+        "植入电极",
+        "非植入电极"
+      ]
+    },
+    {
+      "id": "u2",
+      "name": "芯片",
+      "tier": "upstream",
+      "layer": 1,
+      "aliases": [
+        "神经信号采集",
+        "SoC"
+      ]
+    },
+    {
+      "id": "u3",
+      "name": "算法",
+      "tier": "upstream",
+      "layer": 1,
+      "aliases": [
+        "信号处理",
+        "AI 解码"
+      ]
+    },
+    {
+      "id": "m1",
+      "name": "侵入式 BCI",
+      "tier": "midstream",
+      "layer": 2,
+      "aliases": [
+        "植入式脑机接口"
+      ]
+    },
+    {
+      "id": "m2",
+      "name": "非侵入式 BCI",
+      "tier": "midstream",
+      "layer": 2,
+      "aliases": [
+        "EEG",
+        "穿戴式"
+      ]
+    },
+    {
+      "id": "m3",
+      "name": "半侵入式 BCI",
+      "tier": "midstream",
+      "layer": 2,
+      "aliases": [
+        "皮层电极"
+      ]
+    },
+    {
+      "id": "d1",
+      "name": "医疗",
+      "tier": "downstream",
+      "layer": 3,
+      "aliases": [
+        "瘫痪",
+        "癫痫",
+        "帕金森"
+      ]
+    },
+    {
+      "id": "d2",
+      "name": "消费",
+      "tier": "downstream",
+      "layer": 3,
+      "aliases": [
+        "注意力",
+        "情绪监测"
+      ]
+    },
+    {
+      "id": "d3",
+      "name": "科研",
+      "tier": "downstream",
+      "layer": 3,
+      "aliases": [
+        "神经科学"
+      ]
+    }
+  ],
+  "edges": [
+    {
+      "from": "u1",
+      "to": "m1",
+      "relation": "电极→侵入式"
+    },
+    {
+      "from": "u1",
+      "to": "m2",
+      "relation": "电极→非侵入式"
+    },
+    {
+      "from": "u2",
+      "to": "m1",
+      "relation": "芯片→侵入式"
+    },
+    {
+      "from": "u3",
+      "to": "m2",
+      "relation": "算法→非侵入式"
+    },
+    {
+      "from": "m1",
+      "to": "d1",
+      "relation": "侵入式→医疗"
+    },
+    {
+      "from": "m2",
+      "to": "d2",
+      "relation": "非侵入式→消费"
+    },
+    {
+      "from": "m3",
+      "to": "d1",
+      "relation": "半侵入式→医疗"
+    },
+    {
+      "from": "m2",
+      "to": "d3",
+      "relation": "非侵入式→科研"
+    }
+  ],
+  "companies": {
+    "m1": [
+      "Neuralink",
+      "Blackrock Neurotech",
+      "博睿康"
+    ],
+    "m2": [
+      "BrainCo",
+      "强脑科技",
+      "傲意科技"
+    ]
+  }
+}

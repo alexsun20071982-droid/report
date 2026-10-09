@@ -1,0 +1,160 @@
+{
+  "name": "农业科技产业链",
+  "version": "v1.0",
+  "nodes": [
+    {
+      "id": "u1",
+      "name": "种子",
+      "tier": "upstream",
+      "layer": 1,
+      "aliases": [
+        "种业",
+        "育种"
+      ]
+    },
+    {
+      "id": "u2",
+      "name": "化肥 / 农药",
+      "tier": "upstream",
+      "layer": 1,
+      "aliases": [
+        "农资"
+      ]
+    },
+    {
+      "id": "u3",
+      "name": "农机",
+      "tier": "upstream",
+      "layer": 1,
+      "aliases": [
+        "拖拉机",
+        "无人机"
+      ]
+    },
+    {
+      "id": "m1",
+      "name": "种植 / 养殖",
+      "tier": "midstream",
+      "layer": 2,
+      "aliases": [
+        "规模化种植",
+        "现代养殖"
+      ]
+    },
+    {
+      "id": "m2",
+      "name": "智慧农业",
+      "tier": "midstream",
+      "layer": 2,
+      "aliases": [
+        "精准农业",
+        "数字农业"
+      ]
+    },
+    {
+      "id": "m3",
+      "name": "农产品加工",
+      "tier": "midstream",
+      "layer": 2,
+      "aliases": [
+        "食品加工"
+      ]
+    },
+    {
+      "id": "d1",
+      "name": "食品 / 餐饮",
+      "tier": "downstream",
+      "layer": 3,
+      "aliases": [
+        "B 端餐饮"
+      ]
+    },
+    {
+      "id": "d2",
+      "name": "超市 / 电商",
+      "tier": "downstream",
+      "layer": 3,
+      "aliases": [
+        "盒马",
+        "山姆"
+      ]
+    },
+    {
+      "id": "d3",
+      "name": "出口",
+      "tier": "downstream",
+      "layer": 3,
+      "aliases": [
+        "农产品出口"
+      ]
+    }
+  ],
+  "edges": [
+    {
+      "from": "u1",
+      "to": "m1",
+      "relation": "种子→种植"
+    },
+    {
+      "from": "u2",
+      "to": "m1",
+      "relation": "农资→种植"
+    },
+    {
+      "from": "u3",
+      "to": "m1",
+      "relation": "农机→种植"
+    },
+    {
+      "from": "u3",
+      "to": "m2",
+      "relation": "农机→智慧农业"
+    },
+    {
+      "from": "m1",
+      "to": "m3",
+      "relation": "种植→加工"
+    },
+    {
+      "from": "m2",
+      "to": "m3",
+      "relation": "智慧农业→加工"
+    },
+    {
+      "from": "m3",
+      "to": "d1",
+      "relation": "加工→餐饮"
+    },
+    {
+      "from": "m3",
+      "to": "d2",
+      "relation": "加工→超市"
+    },
+    {
+      "from": "m3",
+      "to": "d3",
+      "relation": "加工→出口"
+    }
+  ],
+  "companies": {
+    "u1": [
+      "隆平高科",
+      "登海种业",
+      "北大荒",
+      "先正达"
+    ],
+    "u3": [
+      "约翰迪尔",
+      "久保田",
+      "雷沃重工",
+      "极飞科技",
+      "大疆农业"
+    ],
+    "m2": [
+      "托普云农",
+      "极飞科技",
+      "大疆农业",
+      "京东农场"
+    ]
+  }
+}

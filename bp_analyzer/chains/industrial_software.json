@@ -1,0 +1,164 @@
+{
+  "name": "工业软件产业链",
+  "version": "v1.0",
+  "nodes": [
+    {
+      "id": "u1",
+      "name": "操作系统",
+      "tier": "upstream",
+      "layer": 1,
+      "aliases": [
+        "OS",
+        "Linux",
+        "RTOS"
+      ]
+    },
+    {
+      "id": "u2",
+      "name": "数据库",
+      "tier": "upstream",
+      "layer": 1,
+      "aliases": [
+        "关系型数据库",
+        "时序数据库"
+      ]
+    },
+    {
+      "id": "m1",
+      "name": "CAD / CAE",
+      "tier": "midstream",
+      "layer": 2,
+      "aliases": [
+        "设计仿真",
+        "Dassault",
+        "ANSYS"
+      ]
+    },
+    {
+      "id": "m2",
+      "name": "PLM",
+      "tier": "midstream",
+      "layer": 2,
+      "aliases": [
+        "产品生命周期",
+        "PTC"
+      ]
+    },
+    {
+      "id": "m3",
+      "name": "ERP",
+      "tier": "midstream",
+      "layer": 2,
+      "aliases": [
+        "企业资源",
+        "SAP",
+        "Oracle"
+      ]
+    },
+    {
+      "id": "m4",
+      "name": "MES",
+      "tier": "midstream",
+      "layer": 2,
+      "aliases": [
+        "制造执行",
+        "西门子"
+      ]
+    },
+    {
+      "id": "d1",
+      "name": "汽车制造",
+      "tier": "downstream",
+      "layer": 3,
+      "aliases": [
+        "主机厂"
+      ]
+    },
+    {
+      "id": "d2",
+      "name": "电子制造",
+      "tier": "downstream",
+      "layer": 3,
+      "aliases": [
+        "SMT",
+        "EMS"
+      ]
+    },
+    {
+      "id": "d3",
+      "name": "能源化工",
+      "tier": "downstream",
+      "layer": 3,
+      "aliases": [
+        "流程行业"
+      ]
+    }
+  ],
+  "edges": [
+    {
+      "from": "u1",
+      "to": "m1",
+      "relation": "OS→CAD"
+    },
+    {
+      "from": "u2",
+      "to": "m3",
+      "relation": "DB→ERP"
+    },
+    {
+      "from": "m1",
+      "to": "m2",
+      "relation": "CAD→PLM"
+    },
+    {
+      "from": "m2",
+      "to": "m4",
+      "relation": "PLM→MES"
+    },
+    {
+      "from": "m3",
+      "to": "m4",
+      "relation": "ERP→MES"
+    },
+    {
+      "from": "m4",
+      "to": "d1",
+      "relation": "MES→汽车"
+    },
+    {
+      "from": "m4",
+      "to": "d2",
+      "relation": "MES→电子"
+    },
+    {
+      "from": "m4",
+      "to": "d3",
+      "relation": "MES→能源"
+    }
+  ],
+  "companies": {
+    "m1": [
+      "Dassault",
+      "ANSYS",
+      "华天软件",
+      "中望软件"
+    ],
+    "m2": [
+      "PTC",
+      "西门子",
+      "数码大方"
+    ],
+    "m3": [
+      "SAP",
+      "Oracle",
+      "用友",
+      "金蝶"
+    ],
+    "m4": [
+      "西门子",
+      "罗克韦尔",
+      "宝信软件",
+      "鼎捷软件"
+    ]
+  }
+}

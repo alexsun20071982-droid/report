@@ -1,0 +1,227 @@
+{
+  "name": "合成生物学产业链",
+  "version": "v1.0",
+  "nodes": [
+    {
+      "id": "u1",
+      "name": "DNA 合成",
+      "tier": "upstream",
+      "layer": 1,
+      "aliases": [
+        "基因合成",
+        "基因写入"
+      ]
+    },
+    {
+      "id": "u2",
+      "name": "DNA 测序",
+      "tier": "upstream",
+      "layer": 1,
+      "aliases": [
+        "基因测序",
+        "基因读取"
+      ]
+    },
+    {
+      "id": "u3",
+      "name": "基因编辑",
+      "tier": "upstream",
+      "layer": 1,
+      "aliases": [
+        "CRISPR",
+        "基因写入"
+      ]
+    },
+    {
+      "id": "u4",
+      "name": "高通量筛选",
+      "tier": "upstream",
+      "layer": 1,
+      "aliases": [
+        "自动化筛选",
+        "DBTL"
+      ]
+    },
+    {
+      "id": "m1",
+      "name": "底盘细胞",
+      "tier": "midstream",
+      "layer": 2,
+      "aliases": [
+        "工程菌",
+        "细胞工厂"
+      ]
+    },
+    {
+      "id": "m2",
+      "name": "代谢通路设计",
+      "tier": "midstream",
+      "layer": 2,
+      "aliases": [
+        "Pathway",
+        "菌株设计"
+      ]
+    },
+    {
+      "id": "m3",
+      "name": "发酵工艺",
+      "tier": "midstream",
+      "layer": 2,
+      "aliases": [
+        "生物发酵",
+        "连续发酵"
+      ]
+    },
+    {
+      "id": "m4",
+      "name": "分离纯化",
+      "tier": "midstream",
+      "layer": 2,
+      "aliases": [
+        "下游加工",
+        "纯化"
+      ]
+    },
+    {
+      "id": "d1",
+      "name": "生物医药",
+      "tier": "downstream",
+      "layer": 3,
+      "aliases": [
+        "创新药",
+        "疫苗",
+        "CGT"
+      ]
+    },
+    {
+      "id": "d2",
+      "name": "医美 / 化妆品",
+      "tier": "downstream",
+      "layer": 3,
+      "aliases": [
+        "胶原蛋白",
+        "玻尿酸"
+      ]
+    },
+    {
+      "id": "d3",
+      "name": "食品",
+      "tier": "downstream",
+      "layer": 3,
+      "aliases": [
+        "人造肉",
+        "代糖"
+      ]
+    },
+    {
+      "id": "d4",
+      "name": "化工材料",
+      "tier": "downstream",
+      "layer": 3,
+      "aliases": [
+        "PHA",
+        "PLA",
+        "生物基材料"
+      ]
+    },
+    {
+      "id": "d5",
+      "name": "农业",
+      "tier": "downstream",
+      "layer": 3,
+      "aliases": [
+        "生物农药",
+        "生物肥料"
+      ]
+    }
+  ],
+  "edges": [
+    {
+      "from": "u1",
+      "to": "m2",
+      "relation": "合成→通路设计"
+    },
+    {
+      "from": "u2",
+      "to": "m2",
+      "relation": "测序→通路设计"
+    },
+    {
+      "from": "u3",
+      "to": "m1",
+      "relation": "编辑→底盘细胞"
+    },
+    {
+      "from": "u4",
+      "to": "m2",
+      "relation": "筛选→通路设计"
+    },
+    {
+      "from": "m1",
+      "to": "m3",
+      "relation": "底盘→发酵"
+    },
+    {
+      "from": "m2",
+      "to": "m1",
+      "relation": "通路→底盘"
+    },
+    {
+      "from": "m3",
+      "to": "m4",
+      "relation": "发酵→纯化"
+    },
+    {
+      "from": "m4",
+      "to": "d1",
+      "relation": "纯化→医药"
+    },
+    {
+      "from": "m4",
+      "to": "d2",
+      "relation": "纯化→医美"
+    },
+    {
+      "from": "m4",
+      "to": "d3",
+      "relation": "纯化→食品"
+    },
+    {
+      "from": "m4",
+      "to": "d4",
+      "relation": "纯化→化工"
+    },
+    {
+      "from": "m4",
+      "to": "d5",
+      "relation": "纯化→农业"
+    }
+  ],
+  "companies": {
+    "u1": [
+      "Twist Bioscience",
+      "金唯智",
+      "擎科生物"
+    ],
+    "u2": [
+      "华大智造",
+      "Illumina",
+      "Nanopore"
+    ],
+    "u3": [
+      "Editas Medicine",
+      "博雅辑因"
+    ],
+    "m1": [
+      "Ginkgo Bioworks",
+      "蓝晶微生物",
+      "微构工坊",
+      "恩和生物"
+    ],
+    "m4": [
+      "凯赛生物",
+      "华恒生物",
+      "川宁生物"
+    ]
+  }
+}

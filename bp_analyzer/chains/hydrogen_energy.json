@@ -1,0 +1,188 @@
+{
+  "name": "氢能产业链",
+  "version": "v1.0",
+  "nodes": [
+    {
+      "id": "u1",
+      "name": "制氢",
+      "tier": "upstream",
+      "layer": 1,
+      "aliases": [
+        "电解水制氢",
+        "化石燃料制氢",
+        "工业副产氢"
+      ]
+    },
+    {
+      "id": "u2",
+      "name": "绿氢",
+      "tier": "upstream",
+      "layer": 1,
+      "aliases": [
+        "可再生能源制氢"
+      ]
+    },
+    {
+      "id": "u3",
+      "name": "制氢设备",
+      "tier": "upstream",
+      "layer": 1,
+      "aliases": [
+        "电解槽",
+        "ALK 电解槽",
+        "PEM 电解槽"
+      ]
+    },
+    {
+      "id": "m1",
+      "name": "储氢",
+      "tier": "midstream",
+      "layer": 2,
+      "aliases": [
+        "高压气态储氢",
+        "低温液态储氢",
+        "固态储氢"
+      ]
+    },
+    {
+      "id": "m2",
+      "name": "运氢",
+      "tier": "midstream",
+      "layer": 2,
+      "aliases": [
+        "管束车",
+        "管道输氢"
+      ]
+    },
+    {
+      "id": "m3",
+      "name": "加氢站",
+      "tier": "midstream",
+      "layer": 2,
+      "aliases": [
+        "加注设施"
+      ]
+    },
+    {
+      "id": "m4",
+      "name": "燃料电池",
+      "tier": "midstream",
+      "layer": 2,
+      "aliases": [
+        "氢燃料电池",
+        "PEMFC",
+        "SOFC"
+      ]
+    },
+    {
+      "id": "m5",
+      "name": "电堆",
+      "tier": "midstream",
+      "layer": 2,
+      "aliases": [
+        "燃料电池电堆"
+      ]
+    },
+    {
+      "id": "d1",
+      "name": "氢燃料电池车",
+      "tier": "downstream",
+      "layer": 3,
+      "aliases": [
+        "氢能源汽车"
+      ]
+    },
+    {
+      "id": "d2",
+      "name": "工业用氢",
+      "tier": "downstream",
+      "layer": 3,
+      "aliases": [
+        "化工",
+        "钢铁",
+        "炼油"
+      ]
+    },
+    {
+      "id": "d3",
+      "name": "氢储能",
+      "tier": "downstream",
+      "layer": 3,
+      "aliases": [
+        "发电",
+        "调峰"
+      ]
+    }
+  ],
+  "edges": [
+    {
+      "from": "u1",
+      "to": "m1",
+      "relation": "氢气→储氢"
+    },
+    {
+      "from": "u2",
+      "to": "m1",
+      "relation": "绿氢→储氢"
+    },
+    {
+      "from": "u3",
+      "to": "u1",
+      "relation": "设备→制氢"
+    },
+    {
+      "from": "m1",
+      "to": "m2",
+      "relation": "储氢→运氢"
+    },
+    {
+      "from": "m2",
+      "to": "m3",
+      "relation": "运氢→加氢站"
+    },
+    {
+      "from": "m3",
+      "to": "d1",
+      "relation": "加氢站→氢车"
+    },
+    {
+      "from": "m4",
+      "to": "m5",
+      "relation": "燃料电池→电堆"
+    },
+    {
+      "from": "m5",
+      "to": "d1",
+      "relation": "电堆→氢车"
+    },
+    {
+      "from": "u1",
+      "to": "d2",
+      "relation": "氢气→工业"
+    },
+    {
+      "from": "u1",
+      "to": "d3",
+      "relation": "氢气→储能"
+    }
+  ],
+  "companies": {
+    "u1": [
+      "隆基绿能",
+      "中船派瑞",
+      "华能集团",
+      "宝丰能源"
+    ],
+    "m3": [
+      "国家电投",
+      "上海舜华",
+      "氢枫能源"
+    ],
+    "m4": [
+      "亿华通",
+      "重塑集团",
+      "雪人股份",
+      "国鸿氢能"
+    ]
+  }
+}

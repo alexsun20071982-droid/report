@@ -1,0 +1,225 @@
+{
+  "name": "人形机器人产业链",
+  "version": "v1.0",
+  "nodes": [
+    {
+      "id": "u1",
+      "name": "减速器",
+      "tier": "upstream",
+      "layer": 1,
+      "aliases": [
+        "谐波减速器",
+        "RV 减速器",
+        "行星减速器"
+      ]
+    },
+    {
+      "id": "u2",
+      "name": "电机",
+      "tier": "upstream",
+      "layer": 1,
+      "aliases": [
+        "空心杯电机",
+        "无框力矩电机",
+        "无刷电机"
+      ]
+    },
+    {
+      "id": "u3",
+      "name": "丝杠",
+      "tier": "upstream",
+      "layer": 1,
+      "aliases": [
+        "行星滚柱丝杠",
+        "滚珠丝杠",
+        "梯形丝杠"
+      ]
+    },
+    {
+      "id": "u4",
+      "name": "传感器",
+      "tier": "upstream",
+      "layer": 1,
+      "aliases": [
+        "六维力传感器",
+        "触觉传感器",
+        "IMU"
+      ]
+    },
+    {
+      "id": "u5",
+      "name": "腱绳",
+      "tier": "upstream",
+      "layer": 1,
+      "aliases": [
+        "钢丝绳",
+        "高分子纤维"
+      ]
+    },
+    {
+      "id": "u6",
+      "name": "控制器",
+      "tier": "upstream",
+      "layer": 1,
+      "aliases": [
+        "运动控制",
+        "AI 芯片"
+      ]
+    },
+    {
+      "id": "m1",
+      "name": "本体",
+      "tier": "midstream",
+      "layer": 2,
+      "aliases": [
+        "整机",
+        "机器人本体"
+      ]
+    },
+    {
+      "id": "m2",
+      "name": "灵巧手",
+      "tier": "midstream",
+      "layer": 2,
+      "aliases": [
+        "末端执行器",
+        "机械手"
+      ]
+    },
+    {
+      "id": "m3",
+      "name": "具身智能",
+      "tier": "midstream",
+      "layer": 2,
+      "aliases": [
+        "VLA 模型",
+        "大模型"
+      ]
+    },
+    {
+      "id": "d1",
+      "name": "工业制造",
+      "tier": "downstream",
+      "layer": 3,
+      "aliases": [
+        "汽车",
+        "3C 制造"
+      ]
+    },
+    {
+      "id": "d2",
+      "name": "家庭服务",
+      "tier": "downstream",
+      "layer": 3,
+      "aliases": [
+        "养老",
+        "陪护"
+      ]
+    },
+    {
+      "id": "d3",
+      "name": "特种作业",
+      "tier": "downstream",
+      "layer": 3,
+      "aliases": [
+        "救援",
+        "巡检"
+      ]
+    }
+  ],
+  "edges": [
+    {
+      "from": "u1",
+      "to": "m1",
+      "relation": "减速器→本体"
+    },
+    {
+      "from": "u2",
+      "to": "m1",
+      "relation": "电机→本体"
+    },
+    {
+      "from": "u2",
+      "to": "m2",
+      "relation": "电机→灵巧手"
+    },
+    {
+      "from": "u3",
+      "to": "m2",
+      "relation": "丝杠→灵巧手"
+    },
+    {
+      "from": "u4",
+      "to": "m2",
+      "relation": "传感器→灵巧手"
+    },
+    {
+      "from": "u5",
+      "to": "m2",
+      "relation": "腱绳→灵巧手"
+    },
+    {
+      "from": "u6",
+      "to": "m1",
+      "relation": "控制器→本体"
+    },
+    {
+      "from": "m3",
+      "to": "m1",
+      "relation": "具身智能→本体"
+    },
+    {
+      "from": "m1",
+      "to": "d1",
+      "relation": "本体→工业"
+    },
+    {
+      "from": "m1",
+      "to": "d2",
+      "relation": "本体→家庭"
+    },
+    {
+      "from": "m1",
+      "to": "d3",
+      "relation": "本体→特种"
+    }
+  ],
+  "companies": {
+    "u1": [
+      "哈默纳科",
+      "绿的谐波",
+      "双环传动",
+      "丰立智能"
+    ],
+    "u2": [
+      "鸣志电器",
+      "伟创电气",
+      "Maxon",
+      "Faulhaber"
+    ],
+    "u3": [
+      "秦川机床",
+      "恒立液压",
+      "北特科技",
+      "五洲新春"
+    ],
+    "u4": [
+      "柯力传感",
+      "汉威科技",
+      "福莱新材",
+      "奥比中光"
+    ],
+    "m1": [
+      "优必选",
+      "宇树科技",
+      "智元机器人",
+      "特斯拉 Optimus",
+      "Figure AI"
+    ],
+    "m3": [
+      "星动纪元",
+      "智元",
+      "Physical Intelligence"
+    ]
+  }
+}

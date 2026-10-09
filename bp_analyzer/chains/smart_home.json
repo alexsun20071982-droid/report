@@ -1,0 +1,198 @@
+{
+  "name": "智能家居产业链",
+  "version": "v1.0",
+  "nodes": [
+    {
+      "id": "u1",
+      "name": "芯片",
+      "tier": "upstream",
+      "layer": 1,
+      "aliases": [
+        "MCU",
+        "IoT 芯片"
+      ]
+    },
+    {
+      "id": "u2",
+      "name": "传感器",
+      "tier": "upstream",
+      "layer": 1,
+      "aliases": [
+        "智能传感器"
+      ]
+    },
+    {
+      "id": "u3",
+      "name": "通信模组",
+      "tier": "upstream",
+      "layer": 1,
+      "aliases": [
+        "Wi-Fi",
+        "蓝牙",
+        "Zigbee",
+        "NB-IoT"
+      ]
+    },
+    {
+      "id": "u4",
+      "name": "智能控制器",
+      "tier": "upstream",
+      "layer": 1,
+      "aliases": [
+        "家电控制"
+      ]
+    },
+    {
+      "id": "u5",
+      "name": "AI / 云平台",
+      "tier": "upstream",
+      "layer": 1,
+      "aliases": [
+        "AI 语音",
+        "云服务"
+      ]
+    },
+    {
+      "id": "m1",
+      "name": "智能家电",
+      "tier": "midstream",
+      "layer": 2,
+      "aliases": [
+        "智能空调",
+        "智能电视",
+        "智能冰箱"
+      ]
+    },
+    {
+      "id": "m2",
+      "name": "智能单品",
+      "tier": "midstream",
+      "layer": 2,
+      "aliases": [
+        "智能音箱",
+        "扫地机器人",
+        "智能门锁"
+      ]
+    },
+    {
+      "id": "m3",
+      "name": "全屋智能方案",
+      "tier": "midstream",
+      "layer": 2,
+      "aliases": [
+        "Matter",
+        "HomeKit",
+        "米家"
+      ]
+    },
+    {
+      "id": "m4",
+      "name": "智能安防",
+      "tier": "midstream",
+      "layer": 2,
+      "aliases": [
+        "智能门锁",
+        "摄像头"
+      ]
+    },
+    {
+      "id": "d1",
+      "name": "家庭",
+      "tier": "downstream",
+      "layer": 3,
+      "aliases": [
+        "C 端住宅"
+      ]
+    },
+    {
+      "id": "d2",
+      "name": "酒店",
+      "tier": "downstream",
+      "layer": 3,
+      "aliases": [
+        "智能酒店"
+      ]
+    },
+    {
+      "id": "d3",
+      "name": "房地产",
+      "tier": "downstream",
+      "layer": 3,
+      "aliases": [
+        "前装市场"
+      ]
+    }
+  ],
+  "edges": [
+    {
+      "from": "u1",
+      "to": "m1",
+      "relation": "芯片→家电"
+    },
+    {
+      "from": "u1",
+      "to": "m2",
+      "relation": "芯片→单品"
+    },
+    {
+      "from": "u2",
+      "to": "m2",
+      "relation": "传感器→单品"
+    },
+    {
+      "from": "u3",
+      "to": "m3",
+      "relation": "通信→全屋"
+    },
+    {
+      "from": "u4",
+      "to": "m1",
+      "relation": "控制器→家电"
+    },
+    {
+      "from": "u5",
+      "to": "m3",
+      "relation": "AI→全屋"
+    },
+    {
+      "from": "m1",
+      "to": "d1",
+      "relation": "家电→家庭"
+    },
+    {
+      "from": "m2",
+      "to": "d1",
+      "relation": "单品→家庭"
+    },
+    {
+      "from": "m3",
+      "to": "d2",
+      "relation": "全屋→酒店"
+    },
+    {
+      "from": "m3",
+      "to": "d3",
+      "relation": "全屋→地产"
+    }
+  ],
+  "companies": {
+    "m1": [
+      "海尔智家",
+      "美的",
+      "格力",
+      "海信"
+    ],
+    "m2": [
+      "小米",
+      "石头",
+      "云鲸",
+      "追觅"
+    ],
+    "m3": [
+      "欧瑞博",
+      "云起",
+      "Aqara",
+      "华为全屋智能"
+    ]
+  }
+}

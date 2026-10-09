@@ -1,0 +1,122 @@
+{
+  "name": "海外仓产业链",
+  "version": "v1.0",
+  "nodes": [
+    {
+      "id": "u1",
+      "name": "仓储设备",
+      "tier": "upstream",
+      "layer": 1,
+      "aliases": [
+        "货架",
+        "AGV",
+        "WMS 系统"
+      ]
+    },
+    {
+      "id": "u2",
+      "name": "地产 / 物业",
+      "tier": "upstream",
+      "layer": 1,
+      "aliases": [
+        "工业地产"
+      ]
+    },
+    {
+      "id": "m1",
+      "name": "海外仓运营商",
+      "tier": "midstream",
+      "layer": 2,
+      "aliases": [
+        "第三方海外仓",
+        "FBA 仓"
+      ]
+    },
+    {
+      "id": "m2",
+      "name": "尾程配送",
+      "tier": "midstream",
+      "layer": 2,
+      "aliases": [
+        "UPS",
+        "FedEx",
+        "USPS",
+        "DHL"
+      ]
+    },
+    {
+      "id": "m3",
+      "name": "清关",
+      "tier": "midstream",
+      "layer": 2,
+      "aliases": [
+        "报关"
+      ]
+    },
+    {
+      "id": "d1",
+      "name": "跨境卖家",
+      "tier": "downstream",
+      "layer": 3,
+      "aliases": [
+        "跨境电商卖家"
+      ]
+    },
+    {
+      "id": "d2",
+      "name": "海外消费者",
+      "tier": "downstream",
+      "layer": 3,
+      "aliases": [
+        "终端用户"
+      ]
+    }
+  ],
+  "edges": [
+    {
+      "from": "u1",
+      "to": "m1",
+      "relation": "设备→运营商"
+    },
+    {
+      "from": "u2",
+      "to": "m1",
+      "relation": "地产→运营商"
+    },
+    {
+      "from": "m1",
+      "to": "m2",
+      "relation": "海外仓→尾程"
+    },
+    {
+      "from": "m1",
+      "to": "m3",
+      "relation": "海外仓→清关"
+    },
+    {
+      "from": "m2",
+      "to": "d2",
+      "relation": "尾程→消费者"
+    },
+    {
+      "from": "d1",
+      "to": "m1",
+      "relation": "卖家→海外仓"
+    }
+  ],
+  "companies": {
+    "m1": [
+      "递四方",
+      "万邑通",
+      "谷仓",
+      "安联锐视",
+      "纵腾集团"
+    ],
+    "m2": [
+      "UPS",
+      "FedEx",
+      "USPS",
+      "DHL"
+    ]
+  }
+}

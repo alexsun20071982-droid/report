@@ -1,0 +1,190 @@
+{
+  "name": "光伏产业链",
+  "version": "v1.0",
+  "nodes": [
+    {
+      "id": "u1",
+      "name": "硅料",
+      "tier": "upstream",
+      "layer": 1,
+      "aliases": [
+        "多晶硅",
+        "工业硅"
+      ]
+    },
+    {
+      "id": "u2",
+      "name": "硅片",
+      "tier": "upstream",
+      "layer": 1,
+      "aliases": [
+        "单晶硅片",
+        "多晶硅片"
+      ]
+    },
+    {
+      "id": "m1",
+      "name": "电池片",
+      "tier": "midstream",
+      "layer": 2,
+      "aliases": [
+        "太阳能电池",
+        "光伏电池"
+      ]
+    },
+    {
+      "id": "m2",
+      "name": "光伏组件",
+      "tier": "midstream",
+      "layer": 2,
+      "aliases": [
+        "太阳能板",
+        "光伏板"
+      ]
+    },
+    {
+      "id": "m3",
+      "name": "光伏辅材",
+      "tier": "midstream",
+      "layer": 2,
+      "aliases": [
+        "光伏玻璃",
+        "EVA 胶膜",
+        "背板",
+        "焊带"
+      ]
+    },
+    {
+      "id": "m4",
+      "name": "逆变器",
+      "tier": "midstream",
+      "layer": 2,
+      "aliases": [
+        "光伏逆变器",
+        "PCS"
+      ]
+    },
+    {
+      "id": "m5",
+      "name": "支架",
+      "tier": "midstream",
+      "layer": 2,
+      "aliases": [
+        "跟踪支架",
+        "固定支架"
+      ]
+    },
+    {
+      "id": "d1",
+      "name": "集中式电站",
+      "tier": "downstream",
+      "layer": 3,
+      "aliases": [
+        "地面电站",
+        "荒漠电站"
+      ]
+    },
+    {
+      "id": "d2",
+      "name": "分布式电站",
+      "tier": "downstream",
+      "layer": 3,
+      "aliases": [
+        "工商业屋顶",
+        "户用光伏"
+      ]
+    },
+    {
+      "id": "d3",
+      "name": "BIPV",
+      "tier": "downstream",
+      "layer": 3,
+      "aliases": [
+        "建筑光伏一体化"
+      ]
+    }
+  ],
+  "edges": [
+    {
+      "from": "u1",
+      "to": "u2",
+      "relation": "硅料→硅片"
+    },
+    {
+      "from": "u2",
+      "to": "m1",
+      "relation": "硅片→电池片"
+    },
+    {
+      "from": "m1",
+      "to": "m2",
+      "relation": "电池片→组件"
+    },
+    {
+      "from": "m3",
+      "to": "m2",
+      "relation": "辅材→组件"
+    },
+    {
+      "from": "m2",
+      "to": "m4",
+      "relation": "组件→逆变器"
+    },
+    {
+      "from": "m2",
+      "to": "m5",
+      "relation": "组件→支架"
+    },
+    {
+      "from": "m2",
+      "to": "d1",
+      "relation": "组件→集中式"
+    },
+    {
+      "from": "m2",
+      "to": "d2",
+      "relation": "组件→分布式"
+    },
+    {
+      "from": "m2",
+      "to": "d3",
+      "relation": "组件→BIPV"
+    }
+  ],
+  "companies": {
+    "u1": [
+      "通威股份",
+      "协鑫科技",
+      "新特能源",
+      "大全新能源"
+    ],
+    "u2": [
+      "隆基绿能",
+      "TCL 中环",
+      "晶澳科技"
+    ],
+    "m1": [
+      "通威股份",
+      "爱旭股份",
+      "晶科能源",
+      "钧达股份"
+    ],
+    "m2": [
+      "隆基绿能",
+      "晶科能源",
+      "天合光能",
+      "晶澳科技"
+    ],
+    "m3": [
+      "福莱特",
+      "福斯特",
+      "海优新材"
+    ],
+    "m4": [
+      "阳光电源",
+      "华为",
+      "上能电气",
+      "锦浪科技"
+    ]
+  }
+}
