@@ -1,0 +1,119 @@
+{
+  "name": "生物降解塑料产业链",
+  "version": "v1.0",
+  "nodes": [
+    {
+      "id": "u1",
+      "name": "玉米",
+      "tier": "upstream",
+      "layer": 1
+    },
+    {
+      "id": "u2",
+      "name": "淀粉",
+      "tier": "upstream",
+      "layer": 1
+    },
+    {
+      "id": "m1",
+      "name": "PLA 聚乳酸",
+      "tier": "midstream",
+      "layer": 2,
+      "aliases": [
+        "聚乳酸",
+        "PLA"
+      ]
+    },
+    {
+      "id": "m2",
+      "name": "PBS",
+      "tier": "midstream",
+      "layer": 2
+    },
+    {
+      "id": "m3",
+      "name": "PHA",
+      "tier": "midstream",
+      "layer": 2
+    },
+    {
+      "id": "d1",
+      "name": "包装薄膜",
+      "tier": "downstream",
+      "layer": 3
+    },
+    {
+      "id": "d2",
+      "name": "一次性餐具",
+      "tier": "downstream",
+      "layer": 3
+    },
+    {
+      "id": "d3",
+      "name": "农用地膜",
+      "tier": "downstream",
+      "layer": 3
+    }
+  ],
+  "edges": [
+    {
+      "from": "u1",
+      "to": "u2",
+      "relation": "原料→加工"
+    },
+    {
+      "from": "u2",
+      "to": "m1",
+      "relation": "原料→聚合"
+    },
+    {
+      "from": "u2",
+      "to": "m2",
+      "relation": "原料→聚合"
+    },
+    {
+      "from": "u2",
+      "to": "m3",
+      "relation": "原料→发酵"
+    },
+    {
+      "from": "m1",
+      "to": "d1",
+      "relation": "树脂→制品"
+    },
+    {
+      "from": "m1",
+      "to": "d2",
+      "relation": "树脂→制品"
+    },
+    {
+      "from": "m2",
+      "to": "d1",
+      "relation": "树脂→制品"
+    },
+    {
+      "from": "m2",
+      "to": "d3",
+      "relation": "树脂→制品"
+    }
+  ],
+  "companies": {
+    "m1": [
+      "NatureWorks",
+      "海正生材",
+      "中粮生物"
+    ],
+    "m2": [
+      "安庆和兴",
+      "BASF"
+    ],
+    "m3": [
+      "蓝晶科技",
+      "微构工坊"
+    ],
+    "d1": [
+      "金发科技",
+      "彤程新材"
+    ]
+  }
+}
